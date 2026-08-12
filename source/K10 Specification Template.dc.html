@@ -226,12 +226,10 @@
   @media print{.rail{display:none !important}}
   a{color:#000;text-decoration:underline}
   a:hover{color:#555}
-  .fill{color:#5a5a5a;font-family:"IBM Plex Mono",monospace;font-size:0.92em}
-  /* A fill is only a placeholder while it still holds one. Once it carries
-     real content it is ordinary specification text and must read as such —
-     otherwise a clause ends up in two faces depending on which slot the
-     words happen to sit in. */
-  .fill[data-filled]{color:inherit;font-family:inherit;font-size:inherit}
+  /* Placeholders keep the document's own face and size — only the grey says
+     "still to be written". One face throughout, filled or not. */
+  .fill{color:#5a5a5a}
+  .fill[data-filled]{color:inherit}
   .kt{break-inside:avoid;orphans:3;widows:3}
 </style>
 <script src="doc-page.js"></script>
