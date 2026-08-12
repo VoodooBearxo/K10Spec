@@ -753,7 +753,7 @@
         <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Boarding</div>
         <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
           <sc-raw-tbody>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Plasterboard lining</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0 x 00mm</span> {{ manufacturer }} {{ boardRange }} <span class="fill">board type, each side / room side]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Plasterboard lining</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0 x 00mm board type, each side / room side]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Horizontal joints</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Support method]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Fixings</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Screw sizes and centres, clause reference]</span></sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
@@ -919,6 +919,22 @@ class Component extends DCLogic {
     ["keydown", "input", "change", "paste", "drop"].forEach((evt) => {
       document.addEventListener(evt, () => { this._userTouched = true; }, true);
     });
+    // Paste lands in the document's own face: a rich clipboard payload
+    // carries its source's fonts and colours as inline markup, which no
+    // stylesheet can override afterwards. Hosted app only — the project
+    // editor has its own machinery. Image pastes pass through untouched
+    // (image-slot is not contenteditable, and an image-only clipboard has
+    // no text/plain).
+    if (!this._hostWrite()) {
+      document.addEventListener("paste", (e) => {
+        const el = e.target;
+        if (!el || !el.isContentEditable) return;
+        const text = e.clipboardData && e.clipboardData.getData("text/plain");
+        if (!text) return;
+        e.preventDefault();
+        document.execCommand("insertText", false, text);
+      }, true);
+    }
     ["input", "change"].forEach((evt) => {
       document.addEventListener(evt, (e) => {
         if (e.target && e.target.hasAttribute && e.target.hasAttribute("data-setup")) this._queueSetupSave();
@@ -1041,12 +1057,47 @@ class Component extends DCLogic {
     return s;
   }
 
+  // Typing over a styled placeholder makes WebKit bake the placeholder's
+  // computed style into <font> and span wrappers — grey mono forever after,
+  // saved and restored as though it were the document's own face. Content
+  // never uses <font>, inline font-family, or px font sizes of its own, so
+  // all three can go wholesale; template inline styles (pt sizes, padding,
+  // borders) pass through untouched.
+  _scrubHtml(html) {
+    if (typeof html !== "string") return html;
+    return html
+      .replace(/<\/?font\b[^>]*>/gi, "")
+      .replace(/ style="([^"]*)"/gi, (m, css) => {
+        const kept = css
+          .replace(/(?:^|;)\s*(?:font-family|caret-color)\s*:[^;"]*/gi, "")
+          .replace(/(?:^|;)\s*font-size\s*:\s*[.\d]+px\s*/gi, "")
+          .replace(/^\s*;\s*/, "").trim();
+        return kept ? ' style="' + kept + '"' : "";
+      });
+  }
+
+  // The Plasterboard lining cell used to be three pieces — two prompts either
+  // side of bound manufacturer text. Restored documents still carry that
+  // shape, pro-forma included, so fold any cell that was never actually
+  // written into the single prompt the template has now.
+  _patchLegacyLining(root) {
+    root.querySelectorAll("tr").forEach((tr) => {
+      const c = tr.cells;
+      if (!c || c.length < 2) return;
+      if (this._cellText(c[0]) !== "Plasterboard lining") return;
+      const t = this._cellText(c[1]);
+      if (/\[Board range\]/.test(t) || /^\[0 x 00mm/.test(t)) {
+        c[1].innerHTML = '<span class="fill">[0 x 00mm board type, each side / room side]</span>';
+      }
+    });
+  }
+
   _collectContent() {
     // A field open at the moment of a save must be stored as its prompt, not
     // as the blank it currently shows. Clause blocks keep the prompt in an
     // attribute on the way out, but the front-page fills are saved as
     // innerHTML alone — persist the blank and the prompt is unrecoverable.
-    const clean = (html) => html.replace(/\u200B/g, "");
+    const clean = (html) => this._scrubHtml(html.replace(/\u200B/g, ""));
     const sched = {};
     ["wall", "ceiling", "steel"].forEach((kind) => {
       const body = document.querySelector('table[data-schedule="' + kind + '"] tbody');
@@ -1121,13 +1172,13 @@ class Component extends DCLogic {
       const body = document.querySelector('table[data-schedule="' + kind + '"] tbody');
       if (!body) return;
       const html = (content.sched || {})[kind];
-      if (typeof html === "string" && html.trim()) { body.innerHTML = html; return; }
+      if (typeof html === "string" && html.trim()) { body.innerHTML = this._scrubHtml(html); return; }
       const list = (content.rows || {})[kind] || [];
       const blank = body.querySelector("tr[data-blank-row]");
       if (!blank || !list.length) return;
       list.forEach((rowHtml) => {
         const tpl = document.createElement("tbody");
-        tpl.innerHTML = rowHtml;
+        tpl.innerHTML = this._scrubHtml(rowHtml);
         const tr = tpl.firstElementChild;
         if (tr) blank.parentNode.insertBefore(tr, blank);
       });
@@ -1140,7 +1191,7 @@ class Component extends DCLogic {
         // New shape: every block was captured, in order.
         saved.forEach((html, i) => {
           const tpl = document.createElement("div");
-          tpl.innerHTML = html;
+          tpl.innerHTML = this._scrubHtml(html);
           const node = tpl.firstElementChild;
           if (!node) return;
           if (blocks[i]) blocks[i].replaceWith(node);
@@ -1152,7 +1203,7 @@ class Component extends DCLogic {
         let anchor = proforma;
         if (anchor) saved.forEach((html) => {
           const tpl = document.createElement("div");
-          tpl.innerHTML = html;
+          tpl.innerHTML = this._scrubHtml(html);
           const node = tpl.firstElementChild;
           if (!node) return;
           anchor.parentNode.insertBefore(node, anchor.nextSibling);
@@ -1164,9 +1215,10 @@ class Component extends DCLogic {
 
     const fills = content.fills || [];
     if (fills.length) {
-      this._fillNodes().forEach((el, i) => { if (fills[i] != null) el.innerHTML = fills[i]; });
+      this._fillNodes().forEach((el, i) => { if (fills[i] != null) el.innerHTML = this._scrubHtml(fills[i]); });
     }
 
+    document.querySelectorAll("[data-clause-block]").forEach((b) => this._patchLegacyLining(b));
     this._makeEditable();
     this._closeEmptyFills(null);
     // Mutation records are delivered asynchronously, so every change made while
