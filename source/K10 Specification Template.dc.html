@@ -1713,9 +1713,12 @@ class Component extends DCLogic {
   _applyStoredClause(clone, row) {
     const key = row.sysRef || row.ref;
     if (!key) return;
-    const entry = (this.state.library || []).find((e) => (e.sysRef || e.ref) === key && e.clause);
+    // hasImage counts as detail: a clause collated with only a drawing never
+    // gets a .clause, and the drawing still has to come back.
+    const entry = (this.state.library || []).find((e) => (e.sysRef || e.ref) === key && (e.clause || e.hasImage));
     if (!entry) return;
     this._applyStoredImage(clone, entry);
+    if (!entry.clause) return;
     clone.querySelectorAll("tr").forEach((tr) => {
       const c = tr.cells;
       if (!c || c.length < 2) return;
