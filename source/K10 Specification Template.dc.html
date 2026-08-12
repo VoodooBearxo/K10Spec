@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="k10-cloud.js"></script>
+
+<style>/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("76152181-56d2-46c3-ae27-c26ec5bbfe50") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9207f54f-c750-4972-9e74-d75b12cf65bd") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cdd53dc5-bb41-4263-bc29-9c1665614de8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("76152181-56d2-46c3-ae27-c26ec5bbfe50") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9207f54f-c750-4972-9e74-d75b12cf65bd") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cdd53dc5-bb41-4263-bc29-9c1665614de8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("76152181-56d2-46c3-ae27-c26ec5bbfe50") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9207f54f-c750-4972-9e74-d75b12cf65bd") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cdd53dc5-bb41-4263-bc29-9c1665614de8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("76152181-56d2-46c3-ae27-c26ec5bbfe50") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("9207f54f-c750-4972-9e74-d75b12cf65bd") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("cdd53dc5-bb41-4263-bc29-9c1665614de8") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("e868dcea-3128-4972-9f85-92bdbdc9a151") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("21601a37-c5ac-4297-a1ca-4de3a923e7b8") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("f7bea4e9-9e12-4ae7-9086-b2e080a5af7e") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("3be1046b-c02c-4934-9856-7d8fad778326") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("505bde52-7589-4d7e-a4a9-2b0f9df260bf") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("57610d19-705b-48e1-abd4-294e6b2f0c5a") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("9a0b9c48-19a8-492c-8605-3ed9d36c6041") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("77600c2b-b19e-4a0b-8e20-d823bb60e8c4") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("96431875-c60a-4e85-8651-eebbe1c460e4") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("6be9ecef-b865-40cc-be13-eabb481ddda6") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+<style>
+  doc-page:not(:defined){visibility:hidden}
+  body{margin:0}
+  @media print{.rail{display:none !important}}
+  a{color:#000;text-decoration:underline}
+  a:hover{color:#555}
+  .fill{color:#5a5a5a;font-family:"IBM Plex Mono",monospace;font-size:0.92em}
+  /* A fill is only a placeholder while it still holds one. Once it carries
+     real content it is ordinary specification text and must read as such —
+     otherwise a clause ends up in two faces depending on which slot the
+     words happen to sit in. */
+  .fill[data-filled]{color:inherit;font-family:inherit;font-size:inherit}
+  .kt{break-inside:avoid;orphans:3;widows:3}
+</style>
+<script src="doc-page.js"></script>
+<script src="image-slot.js"></script>
+</helmet>
+<div class="rail" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;background:#fff;border-bottom:1px solid #ddd;font-family:Archivo,Helvetica,Arial,sans-serif">
+  <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.14em;color:#8a8a8a;margin-right:4px">K10 specification</div>
+  <button type="button" sc-camel-on-click="{{ saveCopy }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 10px;cursor:pointer;text-align:left" style-hover="background:#333;border-color:#333">Save as new project</button>
+  <button type="button" sc-camel-on-click="{{ printDoc }}" style="appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 10px;cursor:pointer;text-align:left" style-hover="background:#f0f0f0">Print / save PDF</button>
+  <div style="display:flex;gap:0;margin-left:14px;border:1px solid #000">
+    <button data-tab="setup" type="button" style="appearance:none;border:0;border-right:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 14px;cursor:pointer">1 · Project setup</button>
+    <button data-tab="front" type="button" style="appearance:none;border:0;border-right:1px solid #000;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 14px;cursor:pointer">2 · Front page</button>
+    <button data-tab="k10" type="button" style="appearance:none;border:0;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 14px;cursor:pointer">3 · K10 specification</button>
+  </div>
+  <div style="font-size:7.5pt;line-height:1.4;color:#8a8a8a;margin-left:auto;max-width:44ch;text-align:right">{{ status }}</div>
+  <div data-build="" style="font:500 8pt/1.2 'IBM Plex Mono',monospace;color:#8a8a8a;letter-spacing:0.04em;padding-left:12px;border-left:1px solid #ddd;white-space:nowrap">v6 · 11 Aug 15:22</div>
+</div>
+<doc-page orientation="landscape" size="a4" margin="12mm">
+
+<div slot="header" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1.5px solid #000;padding-bottom:4px;font-family:Archivo,Helvetica,Arial,sans-serif;font-size:8pt;letter-spacing:0.04em;text-transform:uppercase;color:#000">
+  <div style="display:flex;flex-direction:column;gap:2px">
+    <span style="font-weight:700">{{ docRef }} — {{ projectName }}</span>
+    <span style="color:#555;letter-spacing:0.06em">Main contractor: {{ mainContractor }} &nbsp;·&nbsp; Sub-contractor: {{ subContractor }}</span>
+  </div>
+  <div style="display:flex;gap:22px;color:#555;letter-spacing:0.06em;white-space:nowrap">
+    <span>{{ companyName }}</span>
+    <span>Date: {{ issueDate }}</span>
+    <span>Revision: {{ revision }}</span>
+  </div>
+</div>
+
+<div slot="footer" style="display:flex;justify-content:space-between;gap:24px;border-top:0.75px solid #000;padding-top:4px;font-family:Archivo,Helvetica,Arial,sans-serif;font-size:7.5pt;letter-spacing:0.05em;text-transform:uppercase;color:#555">
+  <span>{{ specBrand }} Specification — K10 Plasterboard Dry Lining / Partitions</span>
+  <span>All specifications shown are covered by the {{ specBrand }} performance warranty</span>
+</div>
+
+<section class="rail" data-tabpane="setup" style="font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;padding-bottom:26px;margin-bottom:30px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:30px;border-bottom:1.5px solid #000;padding-bottom:10px">
+    <div style="display:flex;align-items:flex-end;gap:22px">
+      <img alt="GA Technical" src="assets/ga-technical-black.png" style="display:block;width:44mm;height:auto">
+      <div style="border-left:1px solid #000;padding-left:22px">
+        <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.22em;color:#8a8a8a">Section K10 — Specification builder</div>
+        <h2 style="font-size:22pt;font-weight:700;margin:3px 0 0 0;letter-spacing:-0.02em;line-height:1">Project setup</h2>
+      </div>
+    </div>
+    <div style="text-align:right;font-size:7.5pt;line-height:1.5;text-transform:uppercase;letter-spacing:0.12em;color:#8a8a8a">
+      <div>Internal working sheet — not printed</div>
+      <div>Steps 1 · 2 · 3 — setup, front page, K10</div>
+    </div>
+  </div>
+  <div data-lock-screen="" style="display:none;position:fixed;inset:0;z-index:9998;background:#f4f1ea;align-items:center;justify-content:center;font-family:Archivo,Helvetica,Arial,sans-serif">
+    <div style="width:340px;border:1.5px solid #000;background:#fff;padding:26px 24px">
+      <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.22em;color:#8a8a8a">GA Technical</div>
+      <h2 style="font-size:18pt;font-weight:700;margin:4px 0 0 0;letter-spacing:-0.02em">K10 specification</h2>
+      <p data-lock-copy="" style="font-size:9pt;color:#555;margin:10px 0 16px 0;line-height:1.5">Enter your passcode to unlock.</p>
+      <input data-lock-pass="" type="password" placeholder="Passcode" style="font:400 11pt/1.2 Archivo,Helvetica,Arial,sans-serif;border:1px solid #000;padding:10px;width:100%;box-sizing:border-box">
+      <input data-lock-pass2="" type="password" placeholder="Repeat passcode" style="display:none;font:400 11pt/1.2 Archivo,Helvetica,Arial,sans-serif;border:1px solid #000;padding:10px;width:100%;box-sizing:border-box;margin-top:8px">
+      <button data-lock-go="" type="button" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:11px 14px;cursor:pointer;width:100%;margin-top:12px">Unlock</button>
+      <div data-lock-error="" style="font-size:8.5pt;color:#b00;margin-top:10px;min-height:1.2em"></div>
+    </div>
+  </div>
+
+  <div data-cloud-bar="" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px solid #000;background:#f6f4ef;padding:10px 12px;margin:12px 0 4px 0">
+    <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.18em;color:#000;font-weight:600">Cloud</div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <sc-raw-select data-cloud-list="" style="font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;border:1px solid #000;padding:7px 8px;min-width:240px;background:#fff"></sc-raw-select>
+      <button data-cloud-open="" type="button" style="appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer">Open</button>
+      <button data-cloud-new="" type="button" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer">New K10</button>
+    </div>
+    <div data-cloud-status="" style="font-size:8.5pt;color:#555;margin-left:auto"></div>
+  </div>
+
+  <p style="font-size:9pt;margin:6px 0 16px 0;color:#555;max-width:90ch">Fill this out, then press <strong>Apply to specification</strong> — it builds tab 2 (front page) and tab 3 (K10) from these details and takes you there. This tab is never printed; printing outputs the front page followed by the K10.</p>
+
+  <div style="display:grid;grid-template-columns:1fr;gap:26px">
+    <div>
+      <div style="background:#000;color:#fff;padding:4px 8px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Project information</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px">
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Specification title
+          <input data-setup="specBrand" type="text" placeholder="GA Technical Specification" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Issuing company
+          <input data-setup="companyName" type="text" placeholder="GA Interiors Ltd." style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Project number
+          <input data-setup="projectNumber" type="text" placeholder="BPD000000" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Revision
+          <input data-setup="revision" type="text" placeholder="A" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Project name
+          <input data-setup="projectName" type="text" placeholder="[Project name]" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Date of issue
+          <input data-setup="issueDate" type="text" placeholder="DD.MM.YYYY" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555;grid-column:1 / -1">Address
+          <input data-setup="projectAddress" type="text" placeholder="[Street, Town, Postcode]" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Main contractor
+          <input data-setup="mainContractor" type="text" placeholder="[Main contractor]" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Drylining sub-contractor
+          <input data-setup="subContractor" type="text" placeholder="GA Interiors Ltd" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Architect
+          <input data-setup="architect" type="text" placeholder="[Architect / practice name]" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Issued by
+          <input data-setup="issuedBy" type="text" placeholder="Samuel Dann — Head of Design &amp; Technical" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Contact tel
+          <input data-setup="issuedByTel" type="text" placeholder="07594 131593" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Contact email
+          <input data-setup="issuedByEmail" type="text" placeholder="samuel@gainteriorsltd.com" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;margin-top:12px">
+        <button type="button" sc-camel-on-click="{{ applySetup }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 13px;cursor:pointer" style-hover="background:#333;border-color:#333">Apply to specification</button>
+        <span style="font-size:7.5pt;line-height:1.4;color:#8a8a8a">{{ setupStatus }}</span>
+      </div>
+    </div>
+
+    <div>
+      <div style="background:#000;color:#fff;padding:4px 8px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Manufacturer &amp; system library</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px">
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Manufacturer
+          <sc-raw-select data-setup="manufacturer" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+            <option value="British Gypsum">British Gypsum</option>
+            <option value="Siniat">Siniat</option>
+            <option value="Knauf">Knauf</option>
+            <option value="Hadley">Hadley</option>
+            <option value="">Other — type below</option>
+          </sc-raw-select>
+        </label>
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Board range / other
+          <input data-setup="boardRange" type="text" placeholder="GTEC / Gyproc / Performance" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        </label>
+      </div>
+
+      <div style="border:1px solid #000;padding:9px 10px;margin-top:14px">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+          <div style="font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Choose a system from the library</div>
+          <div style="font-size:7.5pt;color:#8a8a8a">{{ catalogCount }}</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px">
+          <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Schedule
+            <sc-raw-select data-pick="kind" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+              <option value="wall">Drylining / partitions</option>
+              <option value="ceiling">Ceilings</option>
+              <option value="steel">Steel encasement</option>
+            </sc-raw-select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">System family
+            <sc-raw-select data-pick="family" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+              <option value="">All families</option>
+              <sc-for list="{{ familyOptions }}" as="opt" hint-placeholder-count="4">
+                <option value="{{ opt.value }}">{{ opt.label }}</option>
+              </sc-for>
+            </sc-raw-select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Project reference
+            <input data-pick="projectRef" type="text" placeholder="[XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 'IBM Plex Mono',monospace;background:#fff">
+          </label>
+          <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Fire resistance
+            <sc-raw-select data-pick="fire" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+              <option value="">Any / not published</option>
+              <sc-for list="{{ fireOptions }}" as="opt" hint-placeholder-count="4">
+                <option value="{{ opt.value }}">{{ opt.label }}</option>
+              </sc-for>
+            </sc-raw-select>
+          </label>
+          <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Board type
+            <sc-raw-select data-pick="board" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+              <option value="">All boards</option>
+              <sc-for list="{{ boardOptions }}" as="opt" hint-placeholder-count="5">
+                <option value="{{ opt.value }}">{{ opt.label }}</option>
+              </sc-for>
+            </sc-raw-select>
+          </label>
+          <sc-if value="{{ showAcoustic }}" hint-placeholder-val="{{ true }}">
+            <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Acoustic — minimum
+              <sc-raw-select data-pick="acoustic" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+                <option value="">Any / not published</option>
+                <sc-for list="{{ acousticOptions }}" as="opt" hint-placeholder-count="5">
+                  <option value="{{ opt.value }}">{{ opt.label }}</option>
+                </sc-for>
+              </sc-raw-select>
+            </label>
+          </sc-if>
+          <sc-if value="{{ showHeight }}" hint-placeholder-val="{{ true }}">
+            <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Maximum height — minimum
+              <sc-raw-select data-pick="height" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+                <option value="">Any / not published</option>
+                <sc-for list="{{ heightOptions }}" as="opt" hint-placeholder-count="5">
+                  <option value="{{ opt.value }}">{{ opt.label }}</option>
+                </sc-for>
+              </sc-raw-select>
+            </label>
+          </sc-if>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Keyword search — optional
+            <input data-pick="query" type="text" placeholder="SoundBloc, shaftwall, 146mm…" sc-camel-on-input="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+          </label>
+          <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">System — {{ matchCount }}
+            <sc-raw-select data-pick="id" sc-camel-on-change="{{ onPick }}" size="12" style="border:1px solid #000;padding:4px;font:400 9pt/1.5 'IBM Plex Mono',monospace;background:#fff;white-space:pre">
+              <sc-for list="{{ pickOptions }}" as="opt" hint-placeholder-count="6">
+                <option value="{{ opt.value }}">{{ opt.label }}</option>
+              </sc-for>
+            </sc-raw-select>
+          </label>
+        </div>
+        <div style="margin-top:8px;min-height:5.4em;border-top:1px solid #ddd">
+          <sc-for list="{{ pickRows }}" as="row" hint-placeholder-count="6">
+            <div style="display:grid;grid-template-columns:118px 1fr;gap:10px;padding:3px 0;border-bottom:1px solid #eee;font-size:8pt;line-height:1.4">
+              <div style="text-transform:uppercase;letter-spacing:0.1em;font-size:7pt;color:#777;padding-top:1px">{{ row.label }}</div>
+              <div style="color:#111">{{ row.value }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:8px">
+          <button type="button" sc-camel-on-click="{{ insertPick }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer" style-hover="background:#333;border-color:#333">Insert into schedule</button>
+          <span style="font-size:7.5pt;line-height:1.4;color:#8a8a8a">{{ pickStatus }}</span>
+        </div>
+      </div>
+
+      <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555;margin-top:16px">Add a custom system — not in the library</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px">
+        <input data-code="ref" type="text" placeholder="Wall type ref [XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 'IBM Plex Mono',monospace;background:#fff">
+        <input data-code="sysRef" type="text" placeholder="Manufacturer code" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 'IBM Plex Mono',monospace;background:#fff">
+        <input data-code="systemType" type="text" placeholder="System type (shaftwall)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="acoustic" type="text" placeholder="Acoustic (54 dB Rw)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="fire" type="text" placeholder="Fire (60:60 BS EN 1364-1)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="duty" type="text" placeholder="Duty (Severe)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="h600" type="text" placeholder="Height @ 600cc" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="h400" type="text" placeholder="Height @ 400cc" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="h300" type="text" placeholder="Height @ 300cc" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="width" type="text" placeholder="Overall width (146mm)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="insulation" type="text" placeholder="Insulation" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="link" type="text" placeholder="Manufacturer page link" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <textarea data-code="buildup" placeholder="Board build-up description — studs, centres, board layers, each side / room side" rows="2" style="grid-column:1 / -1;border:1px solid #000;padding:6px 7px;font:400 9pt/1.35 Archivo,Helvetica,Arial,sans-serif;background:#fff;resize:vertical"></textarea>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-top:9px">
+        <button type="button" sc-camel-on-click="{{ saveCode }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer" style-hover="background:#333;border-color:#333">Save to library</button>
+        <span data-status-text="" style="font-size:7.5pt;line-height:1.4;color:#8a8a8a">{{ libraryStatus }}</span>
+      </div>
+
+      <div data-library-panel="" style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555;margin-top:16px">Custom systems — {{ libraryCount }}</div>
+      <div data-library-panel="" style="display:flex;flex-direction:column;gap:5px;margin-top:6px;max-height:200px;overflow:auto">
+        <sc-for list="{{ library }}" as="entry" hint-placeholder-count="3">
+          <div style="display:flex;align-items:flex-start;gap:8px;border:1px solid #ddd;padding:6px 8px">
+            <div style="flex:1 1 auto;min-width:0">
+              <div style="font:600 9pt/1.3 'IBM Plex Mono',monospace">{{ entry.title }}</div>
+              <div style="font-size:7.5pt;line-height:1.4;color:#555">{{ entry.summary }}</div>
+            </div>
+            <button type="button" sc-camel-on-click="{{ entry.insert }}" style="appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 7.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:5px 8px;cursor:pointer;white-space:nowrap" style-hover="background:#f0f0f0">Insert row</button>
+            <button type="button" sc-camel-on-click="{{ entry.remove }}" style="appearance:none;border:1px solid #8a8a8a;background:#fff;color:#555;font:500 7.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:5px 8px;cursor:pointer" style-hover="border-color:#000;color:#000">Delete</button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-tabpane="front" style="font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;display:flex;height:158mm;margin-top:6mm;break-after:page">
+  <div style="flex:0 0 47%;display:flex;flex-direction:column;justify-content:space-between;padding:4mm 10mm 2mm 0;box-sizing:border-box">
+    <div>
+      <img alt="GA Technical" src="assets/ga-technical-black.png" style="display:block;width:52mm;height:auto">
+      <div style="height:1.5px;background:#000;margin:10mm 0 0 0"></div>
+      <div style="font-size:8.5pt;text-transform:uppercase;letter-spacing:0.24em;color:#555;margin-top:7px">Specification — Section K10</div>
+      <div style="font-size:9pt;text-transform:uppercase;letter-spacing:0.14em;color:#8a8a8a;margin-top:3px">SFS / Partitions / Ceilings / Steel Encasements</div>
+      <h1 style="font-size:30pt;font-weight:700;letter-spacing:-0.02em;line-height:1.08;margin:6mm 0 0 0;text-wrap:balance">{{ projectName }}</h1>
+      <div style="font-size:11pt;line-height:1.5;color:#333;margin-top:4mm">{{ projectAddress }}</div>
+    </div>
+    <div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;column-gap:10mm;row-gap:6mm;border-top:1.5px solid #000;padding-top:6mm">
+        <div>
+          <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#8a8a8a">Project number</div>
+          <div style="font-size:11pt;font-weight:600;margin-top:2px">{{ docRef }}</div>
+        </div>
+        <div>
+          <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#8a8a8a">Manufacturer</div>
+          <div style="font-size:11pt;font-weight:600;margin-top:2px">{{ manufacturer }} {{ boardRange }}</div>
+        </div>
+        <div>
+          <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#8a8a8a">Issued to</div>
+          <div style="font-size:10pt;line-height:1.45;margin-top:2px">{{ mainContractor }}<br>{{ subContractor }}<br>{{ architect }}</div>
+        </div>
+        <div>
+          <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#8a8a8a">Issued by</div>
+          <div style="font-size:10pt;line-height:1.45;margin-top:2px"><span data-comment-anchor="d7739da5e9-div">{{ companyName }}</span><br><span data-comment-anchor="6df9bca2e2-div">{{ issuedBy }}</span><br><span data-comment-anchor="ff844060d4-div">{{ issuedByTel }}</span><br><span data-comment-anchor="d15cb6843f-span">{{ issuedByEmail }}</span></div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10mm;background:#000;color:#fff;padding:4mm 6mm;margin-top:4mm">
+        <div>
+          <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#b5b5b5">Date of issue</div>
+          <div style="font-size:13pt;font-weight:600;margin-top:2px">{{ issueDate }}</div>
+        </div>
+        <div style="text-align:right" data-comment-anchor="4b9c453516-div">
+          <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#b5b5b5">Revision</div>
+          <div style="font-size:13pt;font-weight:600;margin-top:2px">{{ revision }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="flex:1 1 53%;min-width:0;overflow:hidden;position:relative;background:#f2f2f2">
+    <image-slot fit="cover" id="k10-front-project" placeholder="Drop or paste project image — hover, then Ctrl+V" shape="rect" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:8mm 10mm;pointer-events:none;background:linear-gradient(to top, rgba(0,0,0,0.72), rgba(0,0,0,0))">
+      <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.75)">Project</div>
+      <div style="font-size:12pt;font-weight:600;color:#fff;margin-top:2px">{{ projectName }}</div>
+    </div>
+  </div>
+</section>
+
+<section data-tabpane="front" style="font-family:Archivo,Helvetica,Arial,sans-serif;color:#000">
+  <div style="font-size:11pt;font-weight:700;letter-spacing:-0.01em;margin-bottom:6px">Revision history</div>
+  <sc-raw-table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;letter-spacing:0.03em">
+    <sc-raw-tbody>
+      <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600">
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px;width:9%">Revision</sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px">Comments</sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px;width:12%">Date</sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px;width:12%">Revised by</sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px;width:12%">Checked by</sc-raw-td>
+      </sc-raw-tr>
+      <sc-raw-tr>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[A]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px">First Issue – For Approval / Comment</sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[00.00.00]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[AB]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[CD]</span></sc-raw-td>
+      </sc-raw-tr>
+      <sc-raw-tr>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[B]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[Revision comment]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[00.00.00]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[AB]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:4px 7px"><span class="fill">[CD]</span></sc-raw-td>
+      </sc-raw-tr>
+    </sc-raw-tbody>
+  </sc-raw-table>
+
+  <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.14em;color:#8a8a8a;margin-top:6px">Revision history — page 2 of the issued specification</div>
+</section>
+
+<section data-tabpane="k10" style="break-before:page;font-family:Archivo,Helvetica,Arial,sans-serif;color:#000">
+  <h2 style="font-size:15pt;font-weight:700;margin:0;letter-spacing:-0.01em">Specification schedule</h2>
+  <p style="font-size:9pt;line-height:1.5;margin:6px 0 0 0;max-width:78ch">All specifications shown are covered by the {{ specBrand }} Performance Warranty. Refer to the full clauses that follow for complete build-up, fixing and detailing requirements.</p>
+
+  <div style="margin-top:14px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Drylining specification — {{ manufacturer }} {{ boardRange }} boards</div>
+
+  <sc-raw-table data-schedule="wall" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35;margin-top:0">
+    <sc-raw-thead>
+      <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:8%;text-align:left;vertical-align:bottom">Wall type reference</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:11%;text-align:left;vertical-align:bottom">System reference</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:10%;text-align:left;vertical-align:bottom">System type</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:9%;text-align:left;vertical-align:bottom">Acoustic values</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:11%;text-align:left;vertical-align:bottom">Fire (integrity &amp; insulation)</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:14%;text-align:left;vertical-align:bottom">Max height <span style="font-weight:400;text-transform:none;letter-spacing:0">L/240 @ 200Pa, cold state</span></sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:7%;text-align:left;vertical-align:bottom">Duty rating</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;text-align:left;vertical-align:bottom">Description</sc-raw-th>
+      </sc-raw-tr>
+    </sc-raw-thead>
+    <sc-raw-tbody>
+      <sc-raw-tr class="kt" data-blank-row="">
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;font-weight:600;vertical-align:top"><span class="fill">[XX-000]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[SYSTEM-REF]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Partition type]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[00 dB Rw]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[00:00 minutes tested to BS 000]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[0000mm at 600mm cc]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Duty]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Stud size, centres, board layers and insulation. Add any detailing notes on new lines.]</span></sc-raw-td>
+      </sc-raw-tr>
+      
+            <sc-raw-tr class="kt">
+        <sc-raw-td colspan="8" style="border:1px solid #000;padding:5px 6px;font-size:7.5pt;background:#f0f0f0;vertical-align:top"><strong style="text-transform:uppercase;letter-spacing:0.08em">Additional notes:</strong> <span class="fill">[Add any additional comments relating to this table here.]</span></sc-raw-td>
+      </sc-raw-tr>
+    </sc-raw-tbody>
+  </sc-raw-table>
+
+  <div style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Ceiling specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <sc-raw-table data-schedule="ceiling" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35">
+    <sc-raw-thead>
+      <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:8%;text-align:left">Ceiling type reference</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:11%;text-align:left">System reference</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:10%;text-align:left">Ceiling type</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:9%;text-align:left">Acoustic values</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:11%;text-align:left">Fire</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:14%;text-align:left">Max span</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:7%;text-align:left">Duty rating</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;text-align:left">Description</sc-raw-th>
+      </sc-raw-tr>
+    </sc-raw-thead>
+    <sc-raw-tbody>
+      <sc-raw-tr class="kt" data-blank-row="">
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;font-weight:600;vertical-align:top"><span class="fill">[Ceiling Type 0]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[SYSTEM-REF]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Ceiling type]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[N/A]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[N/A]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[N/A]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[N/A]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Grid system, board type and thickness to finish side, insulation.]</span></sc-raw-td>
+      </sc-raw-tr>
+      <sc-raw-tr class="kt">
+        <sc-raw-td colspan="8" style="border:1px solid #000;padding:5px 6px;font-size:7.5pt;background:#f0f0f0;vertical-align:top"><strong style="text-transform:uppercase;letter-spacing:0.08em">Additional notes:</strong> <span class="fill">[Add any additional comments relating to this table here.]</span></sc-raw-td>
+      </sc-raw-tr>
+    </sc-raw-tbody>
+  </sc-raw-table>
+
+  <div style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Steel encasement specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <sc-raw-table data-schedule="steel" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35">
+    <sc-raw-thead>
+      <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:8%;text-align:left;vertical-align:bottom">Encasement type reference</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:11%;text-align:left;vertical-align:bottom">System reference</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:10%;text-align:left;vertical-align:bottom">Steel section / member</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:11%;text-align:left;vertical-align:bottom">Fire (integrity &amp; insulation)</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:14%;text-align:left;vertical-align:bottom">Section factor A/V <span style="font-weight:400;text-transform:none;letter-spacing:0">and encasement type</span></sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;width:7%;text-align:left;vertical-align:bottom">Duty rating</sc-raw-th>
+        <sc-raw-th style="border:1px solid #000;padding:5px 6px;text-align:left;vertical-align:bottom">Description</sc-raw-th>
+      </sc-raw-tr>
+    </sc-raw-thead>
+    <sc-raw-tbody>
+      <sc-raw-tr class="kt" data-blank-row="">
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;font-weight:600;vertical-align:top"><span class="fill">[SE-00]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[SYSTEM-REF]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Column / beam, 3 or 4-sided]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[00:00 minutes tested to BS EN 13381-1]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[A/V up to 000 m⁻¹]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Duty]</span></sc-raw-td>
+        <sc-raw-td style="border:1px solid #000;padding:5px 6px;vertical-align:top"><span class="fill">[Encasement method, framing centres, board layers and thickness. Add fixing and jointing notes on new lines.]</span></sc-raw-td>
+      </sc-raw-tr>
+      <sc-raw-tr class="kt">
+        <sc-raw-td colspan="7" style="border:1px solid #000;padding:5px 6px;font-size:7.5pt;background:#f0f0f0;vertical-align:top"><strong style="text-transform:uppercase;letter-spacing:0.08em">Additional notes:</strong> <span class="fill">[Add any additional comments relating to this table here.]</span></sc-raw-td>
+      </sc-raw-tr>
+    </sc-raw-tbody>
+  </sc-raw-table>
+  <div class="rail" style="display:flex;align-items:center;gap:12px;margin-top:18px">
+    <button type="button" sc-camel-on-click="{{ generateClauses }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 13px;cursor:pointer;white-space:nowrap" style-hover="background:#333;border-color:#333">Generate full clauses from schedule</button>
+    <button type="button" sc-camel-on-click="{{ captureSchedules }}" style="appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 13px;cursor:pointer;white-space:nowrap" style-hover="background:#f0f0f0">Collate schedule into library</button>
+    <span style="font-size:7.5pt;line-height:1.4;color:#8a8a8a;max-width:60ch">Builds one clause per scheduled type, carrying over reference, acoustic, fire, height and duty. Collating writes every completed row back to the shared custom library, updating systems already held and logging the project against them.</span>
+  </div>
+</section>
+
+<section data-tabpane="k10" style="break-before:page;font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:34px;padding-top:26px;border-top:3px double #000">
+  <h2 style="font-size:15pt;font-weight:700;margin:0 0 4px 0;letter-spacing:-0.01em">Full clauses</h2>
+  <p style="font-size:9pt;margin:0 0 10px 0;color:#555;max-width:80ch">One clause block per system reference, in schedule order. Use <strong>+ Add clause</strong> at the end of this section to append another blank clause page.</p>
+  <div class="rail" style="display:flex;align-items:center;gap:8px;margin:0 0 16px 0">
+    <button type="button" sc-camel-on-click="{{ undoRemoveClause }}" style="appearance:none;border:1px solid #8a8a8a;background:#fff;color:#555;font:500 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer;white-space:nowrap" style-hover="background:#f0f0f0;border-color:#000;color:#000">Undo remove</button>
+    <span id="clause-remove-status" style="font-size:7.5pt;line-height:1.4;color:#8a8a8a"></span>
+  </div>
+
+  <div data-clause-block="" data-clause-proforma="" style="break-before:page;margin-top:34px;padding-top:26px;border-top:1.5px solid #000">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1.5px solid #000">
+      <div style="font-size:13pt;font-weight:700;letter-spacing:-0.01em"><span class="fill" style="font-size:13pt">[XX-000]</span> — <span class="fill" style="font-size:13pt">[System name]</span></div>
+      <div data-clause-tag="" style="font-size:8pt;text-transform:uppercase;letter-spacing:0.1em;color:#555">Blank pro-forma — duplicate per system</div>
+    </div>
+
+    <div style="position:relative;width:100%;height:104mm;margin-top:10px;border:1px solid #000;overflow:hidden;break-inside:avoid">
+      <image-slot fit="contain" id="clause-blank-buildup-a" placeholder="Drop or paste build-up image — hover, then Ctrl+V" shape="rect" style="position:absolute;inset:0;width:100%;height:100%"></image-slot>
+    </div>
+    <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#8a8a8a;margin-top:4px">Build-up specification — drop image above</div>
+    <div style="columns:2;column-gap:34px;font-size:9pt;line-height:1.5;padding-top:10px">
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">System</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">System type</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[System name and family]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Company, address, postcode]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">{{ manufacturer }} — {{ boardRange }} range</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">System reference</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[SYSTEM-REF]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Performance</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Fire resistance (minutes)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[00:00 tested to BS 000]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Sound insulation (dB R<sub>w</sub>)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[00 (-0;-0)]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Thermal</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[U-value W/(m².K) or N/A]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Duty rating (BS 5234)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Light / Medium / Heavy / Severe]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Limiting deflection</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[L/240]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Maximum air pressure</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[200Pa]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Maximum height (mm)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0000mm at 600mm centres]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Overall width (mm)</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[000mm]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Security</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Secured by Design</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[N/A]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Approved Document Q</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[N/A]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Construction</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">General</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">To be installed in accordance with all relevant clauses, the manufacturer's literature and BS 8000-8:2023.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Head condition</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Condition and detail reference]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Deflection head</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[+/- 00mm TBC by Structural Engineer]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Deflection head fillets</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Board type and thickness]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Deflection head angles</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[N/A]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Framing</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Stud configuration</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Stud size and type]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Stud centres</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[600mm]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Head track</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Track size and clause reference]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Base track</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Track size and clause reference]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Boarding</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Plasterboard lining</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0 x 00mm</span> {{ manufacturer }} {{ boardRange }} <span class="fill">board type, each side / room side]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Horizontal joints</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Support method]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Fixings</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Screw sizes and centres, clause reference]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Insulation</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;">Cavity insulation type</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Thickness, product and fixing method — or "No insulation required"]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Finishing</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board finishing</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Taped and jointed / skimmed]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Primer / sealer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Refer to general clause 000]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Sealant</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Sealant requirement]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Beads</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Bead type and locations]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">General notes</div>
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-top:0;break-inside:avoid">
+          <sc-raw-tbody>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Fixtures</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Plywood pattresses fitted between studs to accommodate any heavy wall-mounted fixtures, dependent on load.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Flanking paths</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Greater care required at corners, T-junctions and abutments to reduce flanking paths. Refer to the specification detailing.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Sockets and switches</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Fire and acoustically stopped using putty pads or equal and approved.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Tiling weights</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Must not exceed 32kg/m² on tape and jointed systems, or 20kg/m² on skimmed systems.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Maximum heights</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Assessed in the cold state. Notify GA Interiors Ltd. if project requirements change.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top">Additional notes</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top"><span class="fill">[Any notes specific to this system.]</span></sc-raw-td></sc-raw-tr>
+          </sc-raw-tbody>
+        </sc-raw-table>
+    </div>
+  </div>
+  <div class="rail" style="display:flex;justify-content:flex-start;margin-top:18px">
+    <button class="rail" type="button" sc-camel-on-click="{{ addClause }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer;white-space:nowrap" style-hover="background:#333;border-color:#333">+ Add clause</button>
+  </div>
+</section>
+
+<sc-if value="{{ showGuidance }}" hint-placeholder-val="{{ true }}">
+<section class="rail" data-tabpane="setup" style="font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:30px;padding-top:22px;border-top:3px double #000">
+  <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid #000;padding-bottom:6px">
+    <h2 style="font-size:15pt;font-weight:700;margin:0;letter-spacing:-0.01em">How to use this template</h2>
+    <span style="font-size:8pt;text-transform:uppercase;letter-spacing:0.1em;color:#555">Internal — not printed</span>
+  </div>
+  <div style="columns:2;column-gap:34px;font-size:9.5pt;line-height:1.6;padding-top:12px">
+    <ol style="margin:0;padding-left:18px">
+      <li style="margin-bottom:8px">Start on the <strong>Project setup</strong> page: fill in the specification title, issuing company, project number, name, address, revision, date, contractor, sub-contractor, architect and GA contact, then press <strong>Apply to specification</strong>. Those values flow into the title page, running header and clauses and are saved with the document.</li>
+      <li style="margin-bottom:8px">Choose the manufacturer and board range on the same page. Only these two fields need changing to re-issue a specification against a different manufacturer; check any board names that differ between ranges (dB, Fire, MR, Standard, Coreboard equivalents).</li>
+      <li style="margin-bottom:8px">Use <strong>Choose a system from the library</strong> to pick a tested manufacturer system: set the schedule, narrow by family, filter on performance (for example “60 minutes” or “54 dB”), give it your project reference, then press <strong>Insert into schedule</strong> — the row lands in the matching table on tab 3. Anything not in the library goes in as a <strong>custom system</strong> below, which is saved for future projects.</li>
+      <li style="margin-bottom:8px">Complete the three schedule tables. Duplicate a row per type, use a full-width row for types removed from the specification, and put project comments in each table’s <strong>Additional notes</strong> row.</li>
+      <li style="margin-bottom:8px">Press <strong>Generate full clauses from schedule</strong> to build one clause page per scheduled type. Anything the schedule cannot supply reads TBC — complete those by hand.</li>
+      <li style="margin-bottom:8px">Use <strong>+ Add clause</strong> at the end of the clause section for anything extra, <strong>− Remove clause</strong> in a clause header to delete one, and <strong>Undo remove</strong> if that was a mistake.</li>
+      <li style="margin-bottom:8px">Drop or paste an image into each clause’s build-up box (hover the box and press Ctrl+V). Double-click a filled box to move and resize the image.</li>
+      <li style="margin-bottom:8px">Add a row to the title-page revision table for every issue, and update the revision letter and date on the setup page.</li>
+      <li style="margin-bottom:0px">Press <strong>Save as new project</strong> at the top to create a fresh copy for the next job — each copy keeps its own images and project details. Export with <strong>Print / save PDF</strong> at A4 landscape; this page and all buttons are omitted from the print.</li>
+    </ol>
+  </div>
+</section>
+</sc-if>
+
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script="" data-props="{&quot;manufacturer&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[Manufacturer]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boards&quot;},&quot;boardRange&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[Board range]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Boards&quot;},&quot;companyName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;GA Interiors Ltd.&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Issuer&quot;},&quot;specBrand&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[SPEC BRAND]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Issuer&quot;},&quot;projectName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[Project name, Address, Town]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Project&quot;},&quot;docRef&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[BPD000000]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Project&quot;},&quot;revision&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;A&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Project&quot;},&quot;issueDate&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;[00.00.0000]&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Project&quot;},&quot;showGuidance&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Project&quot;}}">
+class Component extends DCLogic {
+  state = { status: "Creates a copy of this page in the project, with its own images." };
+  async _saveCopy() {
+    const name = window.prompt("Project name for the new copy:");
+    if (!name) return;
+    const safe = name.replace(/[^\w \-&.]/g, "").replace(/\s+/g, " ").trim();
+    if (!safe) { this.setState({ status: "That name can't be used." }); return; }
+    const write = this._hostWrite();
+    // Hosted: there are no files to copy — save everything on the page as a new
+    // record under this name and keep working in it.
+    if (!write) return this._saveAsNewRecord(safe);
+    this.setState({ status: "Saving…" });
+    try {
+      const src = await fetch(location.href.split("#")[0].split("?")[0]).then((r) => r.text());
+      const dest = safe + " — K10 Specification.dc.html";
+      await write(dest, src);
+      // Flush anything still pending so the copy carries the current state.
+      clearTimeout(this._saveTimer);
+      await this._saveContent();
+      const here = this._docBase();
+      const there = dest.replace(/\.dc\.html$/i, "");
+      // Sidecars: dropped images, project setup, and the schedule rows and
+      // clauses that live outside the template — so the copy opens complete
+      // and stays independently editable.
+      const sidecars = [".image-slots.state.json", ".k10-setup.json", ".k10-content.json"];
+      for (const ext of sidecars) {
+        const text = await fetch(here + ext).then((r) => (r.ok ? r.text() : null)).catch(() => null);
+        if (text) await write(there + ext, text);
+      }
+      this.setState({ status: "Created “" + dest + "” with its setup, schedules, clauses and images. Open it from the file list and keep working there." });
+    } catch (e) {
+      this.setState({ status: "Could not save: " + (e && e.message ? e.message : e) });
+    }
+  }
+  // "Save as new project" on the hosted app: mint a fresh record from whatever
+  // is on the page right now, then keep editing inside it.
+  async _saveAsNewRecord(name) {
+    const C = window.K10Cloud;
+    if (!C) { this.setState({ status: "No connection — nothing was saved." }); return; }
+    this.setState({ status: "Saving “" + name + "”…" });
+    try {
+      clearTimeout(this._saveTimer);
+      clearTimeout(this._setupTimer);
+      const setup = this._readInputs("data-setup");
+      const content = this._collectContent();
+      C.setSpecId(null);
+      const row = await C.save({
+        name: name,
+        setup: setup,
+        project_number: setup.projectNumber || setup.jobNumber || null,
+        schedules: content.sched || {},
+        clauses: { list: content.clauses || [], fills: content.fills || [] }
+      }, true);
+      if (!row) throw new Error("the server didn't accept it");
+      this._userTouched = true;
+      this._sessionSaved = { [this._setupFile()]: true, [this._contentFile()]: true };
+      this._refreshCloudList();
+      this.setState({ status: "Saved as “" + name + "”. Everything you do now goes into that project." });
+      this._cloudStatus("Saved to cloud · " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
+    } catch (e) {
+      this.setState({ status: "Could not save: " + (e && e.message ? e.message : e) });
+    }
+  }
+
+  _addClause() {
+    const proforma = document.querySelector("[data-clause-proforma]");
+    if (!proforma) return;
+    const clone = proforma.cloneNode(true);
+    clone.removeAttribute("data-clause-proforma");
+    clone.setAttribute("data-clause-added", "");
+    const stamp = Date.now().toString(36);
+    clone.querySelectorAll("image-slot").forEach((slot, i) => {
+      slot.id = "clause-" + stamp + "-" + i;
+      slot.removeAttribute("data-editable");
+    });
+    const tag = clone.querySelector("[data-clause-tag]");
+    if (tag) tag.textContent = "New clause — complete and rename";
+    this._addRemoveControl(clone);
+    const added = document.querySelectorAll("[data-clause-added]");
+    const last = added.length ? added[added.length - 1] : proforma;
+    last.parentNode.insertBefore(clone, last.nextSibling);
+    clone.setAttribute("tabindex", "-1");
+    // Cloned nodes carry whatever editable state the source had; run over the
+    // new block properly so it is editable and its fills styled for what they
+    // actually hold, rather than for what the block they came from held.
+    this._makeEditable();
+  }
+
+  _clauseNote(msg) {
+    const el = document.getElementById("clause-remove-status");
+    if (el) el.textContent = msg;
+  }
+
+  componentDidMount() {
+    this._decorateClauses();
+    this._initTabs();
+    this._makeEditable();
+    ["keydown", "input", "change", "paste", "drop"].forEach((evt) => {
+      document.addEventListener(evt, () => { this._userTouched = true; }, true);
+    });
+    ["input", "change"].forEach((evt) => {
+      document.addEventListener(evt, (e) => {
+        if (e.target && e.target.hasAttribute && e.target.hasAttribute("data-setup")) this._queueSetupSave();
+        // The contenteditable host is the cell, so typing inside a .fill
+        // reports the cell as the target — mark the fills under it as well as
+        // the one it may itself be.
+        const el = e.target;
+        if (el && el.closest) {
+          const own = el.closest(".fill");
+          if (own) this._markFilled(own);
+        }
+        if (el && el.querySelectorAll) el.querySelectorAll(".fill").forEach((f) => this._markFilled(f));
+      }, true);
+    });
+    // Click targets are precise, unlike the input events above, so this is the
+    // one place a .fill can be identified from the element the user hit.
+    document.addEventListener("click", (e) => {
+      const f = e.target && e.target.closest && e.target.closest(".fill");
+      this._closeEmptyFills(f);
+      if (f) this._openFill(f);
+    }, true);
+    document.addEventListener("focusout", () => {
+      // Let the next focus settle before deciding what was abandoned.
+      setTimeout(() => this._closeEmptyFills(this._caretFill()), 0);
+    }, true);
+    document.addEventListener("click", (e) => {
+      const b = e.target.closest && e.target.closest("button");
+      // Moving between tabs is reading, not work — it must not arm the save.
+      if (b && !b.hasAttribute("data-tab")) this._userTouched = true;
+    }, true);
+    // The rail button closes fields on its way through the click handler;
+    // the browser's own print command does not.
+    window.addEventListener("beforeprint", () => this._closeEmptyFills(null));
+    const snapshot = () => {
+      const blank = this._collectContent();
+      this._contentBaseline = this._normalise({ s: blank.sched, c: blank.clauses, f: blank.fills });
+    };
+    snapshot();
+    // image-slot stamps its own attributes when it upgrades; re-take the
+    // baseline once that has settled so it can never read as an edit.
+    const slots = window.customElements && customElements.whenDefined("image-slot");
+    if (slots) slots.then(() => requestAnimationFrame(() => requestAnimationFrame(snapshot)));
+    this._initLock().then((unlocked) => {
+      this._loadSetup();
+      if (unlocked) this._initCloud();
+    });
+  }
+
+  _initTabs() {
+    document.querySelectorAll("[data-tab]").forEach((b) => {
+      b.addEventListener("click", () => this._showTab(b.getAttribute("data-tab")));
+    });
+    this._showTab(this._tab || "setup");
+  }
+
+  // Setup is a working tab only; front page and K10 are the printed output.
+  _showTab(name) {
+    this._tab = name;
+    document.querySelectorAll("[data-tabpane]").forEach((el) => {
+      // Capture the authored display once — clearing it would drop flex covers.
+      if (el.dataset.paneDisplay == null) el.dataset.paneDisplay = el.style.display || "";
+      el.style.display = el.getAttribute("data-tabpane") === name ? el.dataset.paneDisplay : "none";
+    });
+    // The running header/footer belong to the issued document, not the working sheet.
+    document.querySelectorAll('[slot="header"],[slot="footer"]').forEach((el) => {
+      el.style.display = name === "setup" ? "none" : "";
+    });
+    document.querySelectorAll("[data-tab]").forEach((b) => {
+      const on = b.getAttribute("data-tab") === name;
+      b.style.background = on ? "#000" : "#fff";
+      b.style.color = on ? "#fff" : "#000";
+    });
+  }
+
+  _printDoc() {
+    document.querySelectorAll("[data-tabpane]").forEach((el) => {
+      if (el.dataset.paneDisplay == null) el.dataset.paneDisplay = el.style.display || "";
+      el.style.display = el.getAttribute("data-tabpane") === "setup" ? "none" : el.dataset.paneDisplay;
+    });
+    document.querySelectorAll('[slot="header"],[slot="footer"]').forEach((el) => { el.style.display = ""; });
+    const restore = () => { this._showTab(this._tab || "setup"); window.removeEventListener("afterprint", restore); };
+    window.addEventListener("afterprint", restore);
+    setTimeout(() => { window.print(); setTimeout(restore, 800); }, 120);
+  }
+
+  _docBase() {
+    return decodeURIComponent(location.pathname.split("/").pop() || "").replace(/\.dc\.html$/i, "");
+  }
+
+  // Project setup lives with this document; the system library is shared by
+  // every project so it grows into one reference set.
+  _setupFile() { return this._docBase() + ".k10-setup.json"; }
+  // Imported manufacturer catalogue (read-only) and this office's own additions.
+  _libraryFile() { return "k10-system-library.json"; }
+  _customFile() { return "k10-custom-systems.json"; }
+  // Rows inserted into the schedules and clauses generated or added after the
+  // template was authored live only in the page, so they are saved beside it.
+  // Clause images look after themselves — image-slot keeps each drop against
+  // the slot id, and the ids travel inside the saved clause markup.
+  _contentFile() { return this._docBase() + ".k10-content.json"; }
+
+  // Everything the user can change: the schedule tables in full (inserted rows
+  // AND anything typed into the cells), every clause block, and the free-text
+  // fills on the front page.
+  _fillNodes() {
+    return Array.from(document.querySelectorAll(".fill"))
+      .filter((el) => !el.closest("[data-schedule]") && !el.closest("[data-clause-block]"));
+  }
+
+  // Strip everything the page writes to itself — image-slot's inline styles,
+  // editor bookkeeping attributes, and the slot's own contents — so only real
+  // edits register as changes.
+  _normalise(payload) {
+    let s = JSON.stringify(payload);
+    s = s.replace(/<image-slot\b[^>]*>[\s\S]*?<\/image-slot>/g, "<image-slot/>");
+    s = s.replace(/\s(style|spellcheck|contenteditable|data-editable|data-filled|data-placeholder|data-om-id|data-dc-tpl|data-om-raster)=\\?"[^"\\]*\\?"/g, "");
+    // A field that happens to be open while this runs is mid-edit, not a
+    // different document.
+    s = s.replace(/\u200B/g, "");
+    return s;
+  }
+
+  _collectContent() {
+    // A field open at the moment of a save must be stored as its prompt, not
+    // as the blank it currently shows. Clause blocks keep the prompt in an
+    // attribute on the way out, but the front-page fills are saved as
+    // innerHTML alone — persist the blank and the prompt is unrecoverable.
+    const clean = (html) => html.replace(/\u200B/g, "");
+    const sched = {};
+    ["wall", "ceiling", "steel"].forEach((kind) => {
+      const body = document.querySelector('table[data-schedule="' + kind + '"] tbody');
+      if (body) sched[kind] = clean(body.innerHTML);
+    });
+    const clauses = Array.from(document.querySelectorAll("[data-clause-block]")).map((el) => clean(el.outerHTML));
+    const fills = this._fillNodes().map((el) =>
+      el.hasAttribute("data-placeholder") && !this._txt(el)
+        ? el.getAttribute("data-placeholder")
+        : clean(el.innerHTML));
+    return { sched: sched, clauses: clauses, fills: fills, savedAt: new Date().toISOString() };
+  }
+
+  _saveContent() {
+    if (this._restoring) return Promise.resolve(false);
+    return this._writeFile(this._contentFile(), this._collectContent());
+  }
+
+  // Any edit anywhere in the document — typed clause text, a pasted image, a
+  // new row — schedules one save a second later, so nothing is lost mid-K10.
+  _queueSave() {
+    if (this._restoring || !this._userTouched) return;
+    clearTimeout(this._saveTimer);
+    this._saveTimer = setTimeout(() => this._saveContent(), 1000);
+    this._queueCollate();
+  }
+
+  // The library learns as the specification is written. Wording typed into a
+  // clause is collated back onto that system, so the next K10 to use it starts
+  // from the terminology actually in use rather than the manufacturer's.
+  // Slower than the document save on purpose — there is nothing to be gained
+  // from re-collating on every keystroke, and it re-reads the whole document.
+  _queueCollate() {
+    if (this._restoring || !this._userTouched) return;
+    clearTimeout(this._collateTimer);
+    this._collateTimer = setTimeout(() => this._captureSchedules(true), 5000);
+  }
+
+  _watchContent() {
+    const host = document.querySelector("doc-page") || document.body;
+    if (!host || this._observer) return;
+    // Status readouts live inside the observed tree; writing to them must not
+    // count as an edit, or each save would trigger the next one forever.
+    const noise = () => Array.from(document.querySelectorAll("[data-cloud-bar],#clause-remove-status,[data-status-text],[data-library-panel]"));
+    const quiet = ["style", "spellcheck", "contenteditable", "data-editable", "data-filled", "data-placeholder", "data-om-id"];
+    this._observer = new MutationObserver((records) => {
+      const skip = noise();
+      const real = records.some((r) => {
+        if (r.type === "attributes" && quiet.indexOf(r.attributeName) !== -1) return false;
+        const el = r.target.nodeType === 1 ? r.target : r.target.parentElement;
+        if (el && el.closest && el.closest("image-slot")) return false;
+        return !skip.some((n) => n === r.target || n.contains(r.target));
+      });
+      if (real) {
+        // A bound fill re-rendered by setState arrives after the last pass,
+        // so keep the placeholder styling in step with whatever is in there
+        // now. data-filled is a quiet attribute, so this cannot feed itself.
+        this._markFilled();
+        this._queueSave();
+      }
+    });
+    this._observer.observe(host, { childList: true, subtree: true, characterData: true, attributes: true });
+    window.addEventListener("beforeunload", () => { clearTimeout(this._saveTimer); this._saveContent(); });
+  }
+
+  _restoreContent(content) {
+    if (!content) return;
+    this._restoring = true;
+
+    // Older records stored only the inserted rows; both shapes are handled.
+    ["wall", "ceiling", "steel"].forEach((kind) => {
+      const body = document.querySelector('table[data-schedule="' + kind + '"] tbody');
+      if (!body) return;
+      const html = (content.sched || {})[kind];
+      if (typeof html === "string" && html.trim()) { body.innerHTML = html; return; }
+      const list = (content.rows || {})[kind] || [];
+      const blank = body.querySelector("tr[data-blank-row]");
+      if (!blank || !list.length) return;
+      list.forEach((rowHtml) => {
+        const tpl = document.createElement("tbody");
+        tpl.innerHTML = rowHtml;
+        const tr = tpl.firstElementChild;
+        if (tr) blank.parentNode.insertBefore(tr, blank);
+      });
+    });
+
+    const saved = content.clauses || [];
+    if (saved.length) {
+      const blocks = Array.from(document.querySelectorAll("[data-clause-block]"));
+      if (content.sched || content.fills) {
+        // New shape: every block was captured, in order.
+        saved.forEach((html, i) => {
+          const tpl = document.createElement("div");
+          tpl.innerHTML = html;
+          const node = tpl.firstElementChild;
+          if (!node) return;
+          if (blocks[i]) blocks[i].replaceWith(node);
+          else if (blocks.length) blocks[blocks.length - 1].parentNode.appendChild(node);
+          if (!node.hasAttribute("data-clause-proforma")) this._addRemoveControl(node);
+        });
+      } else {
+        const proforma = document.querySelector("[data-clause-proforma]");
+        let anchor = proforma;
+        if (anchor) saved.forEach((html) => {
+          const tpl = document.createElement("div");
+          tpl.innerHTML = html;
+          const node = tpl.firstElementChild;
+          if (!node) return;
+          anchor.parentNode.insertBefore(node, anchor.nextSibling);
+          this._addRemoveControl(node);
+          anchor = node;
+        });
+      }
+    }
+
+    const fills = content.fills || [];
+    if (fills.length) {
+      this._fillNodes().forEach((el, i) => { if (fills[i] != null) el.innerHTML = fills[i]; });
+    }
+
+    this._makeEditable();
+    this._closeEmptyFills(null);
+    // Mutation records are delivered asynchronously, so every change made while
+    // restoring lands after this function returns — with the flag already
+    // cleared they read as the user's own edits, and against a baseline still
+    // taken from the blank document that is enough to mint a duplicate record.
+    // Drain them, then treat what was restored as the new baseline: it is what
+    // is already stored, so writing it straight back is never right.
+    Promise.resolve().then(() => {
+      if (this._observer) this._observer.takeRecords();
+      const now = this._collectContent();
+      this._contentBaseline = this._normalise({ s: now.sched, c: now.clauses, f: now.fills });
+      this._restoring = false;
+    });
+  }
+
+  // Away from the project editor nothing in the document is editable, so the
+  // spec can't actually be filled in. Turn the fillable parts into real
+  // editable text on the hosted app.
+  _makeEditable() {
+    if (this._hostWrite()) return; // the project editor already handles this
+    const targets = document.querySelectorAll(
+      ".fill, [data-schedule] tbody td, [data-clause-block] p, [data-clause-block] li, [data-clause-block] td, " +
+      "[data-clause-block] h3, [data-clause-block] h4, [data-clause-block] span, [data-clause-block] div"
+    );
+    targets.forEach((el) => {
+      if (el.isContentEditable || el.closest("image-slot")) return;
+      // Only leaf text — never a container holding other editable blocks.
+      if (el.querySelector("image-slot, button, input, select, [data-clause-block]")) return;
+      el.setAttribute("contenteditable", "true");
+      el.setAttribute("spellcheck", "false");
+      if (!el.style.outline) el.style.outline = "none";
+    });
+    document.querySelectorAll("image-slot, button, select, input").forEach((el) => {
+      el.setAttribute("contenteditable", "false");
+    });
+    this._markFilled();
+  }
+
+  // Placeholder or content? A fill holding "[Board range]", "TBC" or nothing
+  // is still waiting to be written; anything else is the specification and
+  // takes the document's own face rather than the placeholder's grey mono.
+  _markFilled(el) {
+    const one = (node) => {
+      // An open field is deliberately blank and must keep the document face
+      // while it is being typed into, so it is left marked.
+      if (node.hasAttribute("data-placeholder")) return;
+      const t = this._txt(node);
+      if (this._isPlaceholder(t)) node.removeAttribute("data-filled");
+      else node.setAttribute("data-filled", "");
+    };
+    if (el) return one(el);
+    document.querySelectorAll(".fill").forEach(one);
+  }
+
+  _readInputs(attr) {
+    const out = {};
+    document.querySelectorAll("[" + attr + "]").forEach((el) => {
+      out[el.getAttribute(attr)] = (el.value || "").trim();
+    });
+    return out;
+  }
+
+  _writeFile(path, data) {
+    const cloud = this._cloudWrite(path, data);
+    const w = this._hostWrite();
+    if (!w) return cloud;
+    return Promise.resolve(w(path, JSON.stringify(data, null, 2))).then(() => true).catch(() => false);
+  }
+
+  // The real project host, not the image-slot shim that stands in for it on the
+  // hosted app — that one only handles image state.
+  _hostWrite() {
+    // ?forceHosted=1 pretends the project editor isn't there, so the hosted
+    // behaviour (editable document, cloud-only saves) can be tested in place.
+    try {
+      if (new URLSearchParams(location.search).get("forceHosted") === "1") return null;
+    } catch (e) {}
+    const o = window.omelette;
+    return o && o.writeFile && !o.__k10Shim ? o.writeFile : null;
+  }
+
+  // Cloud mirror: setup and content land in one k10_specs row, custom systems
+  // in the shared k10_library. Silently a no-op when signed out.
+  _cloudWrite(path, data) {
+    const C = window.K10Cloud;
+    if (!C || !this._cloudUser) return Promise.resolve(false);
+    // Opening the page is not a project. Only a payload with real work in it
+    // may create a record — the flag travels with the save, so a dead id can't
+    // sneak an empty one in through the recovery path either.
+    const worth = this._worthSaving(path, data);
+    // Creating a record is reserved for a document the user has actually
+    // worked on. An update may proceed on its own merits; an insert may not.
+    const mayInsert = worth && !!this._userTouched;
+    // An empty payload never overwrites a stored one. Only once this session
+    // has genuinely saved content for this path is clearing it back out
+    // treated as a real edit (deleting the last schedule row, say).
+    this._sessionSaved = this._sessionSaved || {};
+    if (!worth && !this._sessionSaved[path]) return Promise.resolve(false);
+    let p = null;
+    if (path === this._setupFile()) {
+      p = C.save({
+        setup: data,
+        name: (data && (data.projectName || data.project)) || "Untitled K10",
+        project_number: (data && (data.projectNumber || data.jobNumber)) || null
+      }, mayInsert);
+    } else if (path === this._contentFile()) {
+      p = C.save({
+        schedules: (data && data.sched) || {},
+        clauses: { list: (data && data.clauses) || [], fills: (data && data.fills) || [] }
+      }, mayInsert);
+    } else if (path === this._customFile()) {
+      // A delta left by collation covers exactly the entries that moved;
+      // anything else (a hand edit, a deletion) still sends the whole list.
+      const delta = this._libraryDelta;
+      this._libraryDelta = null;
+      p = C.saveLibrary(delta && delta.length ? delta : (Array.isArray(data) ? data : []));
+    }
+    if (!p) return Promise.resolve(false);
+    return p.then((row) => {
+      // Only claim success when something was actually written.
+      if (!row) { if (worth) this._cloudStatus("Not saved — trying again on your next edit."); return false; }
+      if (worth) this._sessionSaved[path] = true;
+      // Minute precision only — a per-second readout is just noise.
+      this._cloudStatus("Saved to cloud · " + new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
+      return true;
+    })
+      .catch((e) => { this._cloudStatus("Not saved: " + (e && e.message ? e.message : e)); return false; });
+  }
+
+  // Manufacturer catalogue from Postgres, cached so a reload is instant and a
+  // dropped connection mid-K10 doesn't empty the picker.
+  _loadCatalogue() {
+    const C = window.K10Cloud;
+    if (!C) return;
+    try {
+      const cached = JSON.parse(localStorage.getItem("k10.catalog") || "null");
+      if (cached && cached.length) this.setState({ catalog: cached });
+    } catch (e) {}
+    C.catalog().then((records) => {
+      if (!records || !records.length) return;
+      this.setState({ catalog: records });
+      try { localStorage.setItem("k10.catalog", JSON.stringify(records)); } catch (e) {}
+    }).catch(() => {
+      if (!(this.state.catalog || []).length) this._cloudStatus("Could not load the system library — check your connection.");
+    });
+  }
+
+  // Does this payload contain any actual work? Empty schedule shells and blank
+  // setup fields don't count.
+  _worthSaving(path, data) {
+    if (!data) return false;
+    if (path === this._setupFile()) {
+      return Object.keys(data).some((k) => String(data[k] || "").trim() !== "");
+    }
+    if (path === this._contentFile()) {
+      const base = this._contentBaseline;
+      if (!base) return false;
+      return this._normalise({ s: data.sched, c: data.clauses, f: data.fills }) !== base;
+    }
+    if (path === this._customFile()) return Array.isArray(data) && data.length > 0;
+    return false;
+  }
+
+  _cloudStatus(msg) {
+    const el = document.querySelector("[data-cloud-status]");
+    if (el && el.textContent !== msg) el.textContent = msg;
+  }
+
+  // Passcode gate. The database key is never in this file — it is fetched once
+  // the passcode is accepted, then kept on this machine.
+  _initLock() {
+    const C = window.K10Cloud;
+    if (!C) return Promise.resolve(false);
+    const $ = (s) => document.querySelector("[" + s + "]");
+    const screen = $("data-lock-screen");
+    if (!C.locked()) return Promise.resolve(true);
+    if (!screen) return Promise.resolve(false);
+
+    return C.status().then((s) => new Promise((resolve) => {
+      const first = !s.hasPass;
+      const pass = $("data-lock-pass"), pass2 = $("data-lock-pass2"),
+            go = $("data-lock-go"), err = $("data-lock-error"), copy = $("data-lock-copy");
+      screen.style.display = "flex";
+      if (first) {
+        copy.textContent = "First run — choose a passcode. You'll need it on each new machine.";
+        pass.placeholder = "New passcode";
+        pass2.style.display = "block";
+        go.textContent = "Set passcode";
+      }
+      pass.focus();
+
+      const submit = () => {
+        err.textContent = "";
+        const v = pass.value.trim();
+        if (!v) return;
+        if (first && v !== pass2.value.trim()) { err.textContent = "The two passcodes don't match."; return; }
+        go.disabled = true;
+        go.textContent = first ? "Setting…" : "Unlocking…";
+        const done = () => { location.reload(); };
+        const fail = (e) => {
+          err.textContent = e.message || String(e);
+          go.disabled = false;
+          go.textContent = first ? "Set passcode" : "Unlock";
+          pass.select();
+        };
+        (first ? C.setPass(v) : C.unlock(v)).then(done).catch(fail);
+      };
+
+      go.addEventListener("click", submit);
+      [pass, pass2].forEach((el) => el.addEventListener("keydown", (e) => { if (e.key === "Enter") submit(); }));
+    })).catch(() => false);
+  }
+
+  _initCloud() {
+    const C = window.K10Cloud;
+    if (!C) return;
+    const $ = (s) => document.querySelector("[" + s + "]");
+    const on = (s, fn) => { const el = $(s); if (el) el.addEventListener("click", fn); };
+    this._cloudUser = true;
+
+    // A debounced save is aimed at the record that was open when it was
+    // queued. Switch records without cancelling and it lands on the new one,
+    // overwriting the project just opened with the one just left.
+    const dropPending = () => {
+      clearTimeout(this._saveTimer);
+      clearTimeout(this._setupTimer);
+      clearTimeout(this._collateTimer);
+    };
+
+    on("data-cloud-new", () => {
+      dropPending();
+      C.setSpecId(null);
+      this._cloudStatus("New K10 — next save creates a fresh record.");
+    });
+
+    on("data-cloud-open", () => {
+      const sel = $("data-cloud-list");
+      if (!sel || !sel.value) return;
+      dropPending();
+      C.setSpecId(sel.value);
+      this._pullCloud(sel.value);
+    });
+
+    this._refreshCloudList();
+    this._loadLibrary();
+    // Standalone copy: the cloud row is the only source, so restore it on load.
+    const local = this._hostWrite();
+    if (!local && C.specId()) {
+      // Drop an id whose record has gone, so the next edit starts a fresh one
+      // instead of writing into nothing.
+      C.load().then((row) => {
+        if (row) return this._pullCloud();
+        C.setSpecId(null);
+        this._cloudStatus("Previous K10 no longer on the server — your next edit starts a new one.");
+        this._refreshCloudList();
+      });
+    }
+    this._cloudStatus("Connected — saving automatically.");
+  }
+
+  _refreshCloudList() {
+    const C = window.K10Cloud, sel = document.querySelector("[data-cloud-list]");
+    if (!C || !sel) return;
+    C.list().then((rows) => {
+      const cur = C.specId();
+      sel.innerHTML = "";
+      if (!rows.length) {
+        const o = document.createElement("option");
+        o.textContent = "No saved K10s yet";
+        sel.appendChild(o);
+        return;
+      }
+      rows.forEach((r) => {
+        const o = document.createElement("option");
+        o.value = r.id;
+        o.textContent = (r.name || "Untitled") + (r.project_number ? " · " + r.project_number : "");
+        if (r.id === cur) o.selected = true;
+        sel.appendChild(o);
+      });
+    });
+  }
+
+  // Pull a saved K10 down over the current page.
+  _pullCloud(id) {
+    const C = window.K10Cloud;
+    if (!C) return Promise.resolve();
+    return C.load(id).then((row) => {
+      if (!row) return;
+      if (row.setup) {
+        document.querySelectorAll("[data-setup]").forEach((el) => {
+          const v = row.setup[el.getAttribute("data-setup")];
+          if (v != null) el.value = v;
+        });
+        this.setState({ setup: row.setup });
+      }
+      const clauses = (row.clauses && row.clauses.list) || [];
+      const fills = (row.clauses && row.clauses.fills) || [];
+      const sched = row.schedules || {};
+      const newShape = Object.values(sched).some((v) => typeof v === "string");
+      if (clauses.length || Object.keys(sched).length) {
+        if (!newShape) {
+          document.querySelectorAll("[data-clause-generated],[data-clause-added]").forEach((el) => el.remove());
+          document.querySelectorAll("tr[data-inserted-row]").forEach((el) => el.remove());
+        }
+        this._restoreContent(newShape
+          ? { sched: sched, clauses: clauses, fills: fills }
+          : { rows: sched, clauses: clauses });
+      }
+      return this._loadLibrary().then(() => {
+        this._cloudStatus("Opened “" + (row.name || "Untitled") + "”.");
+        this._refreshCloudList();
+      });
+    });
+  }
+
+  // The collated office library is what makes a re-used system arrive complete,
+  // so it has to be in hand before the first clause is generated — not only
+  // after opening a saved K10, which is when it used to be fetched.
+  _loadLibrary() {
+    const C = window.K10Cloud;
+    if (!C) return Promise.resolve(false);
+    return C.library().then((lib) => {
+      if (!lib || !lib.length) return false;
+      this.setState({ library: lib.map((r) => r.detail || {}) });
+      return true;
+    }).catch(() => false);
+  }
+
+  async _loadSetup() {
+    const grab = (f) => fetch(f).then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const [setup, catalog, library, content] = await Promise.all([grab(this._setupFile()), grab(this._libraryFile()), grab(this._customFile()), grab(this._contentFile())]);
+    this._restoreContent(content);
+    this._watchContent();
+    if (catalog && Array.isArray(catalog.records)) {
+      this.setState({ catalog: catalog.records, catalogMeta: catalog });
+    } else {
+      this._loadCatalogue();
+    }
+    if (setup) {
+      document.querySelectorAll("[data-setup]").forEach((el) => {
+        const v = setup[el.getAttribute("data-setup")];
+        if (v != null) el.value = v;
+      });
+      this.setState({ setup: setup });
+    }
+    if (Array.isArray(library)) this.setState({ library: library });
+  }
+
+  // Typing in the setup fields saves on its own — "Apply to specification" is
+  // for pushing those details through to the front page and K10, not for
+  // keeping them.
+  _queueSetupSave() {
+    clearTimeout(this._setupTimer);
+    this._setupTimer = setTimeout(() => {
+      const setup = this._readInputs("data-setup");
+      this.setState({ setup: setup });
+      this._writeFile(this._setupFile(), setup);
+    }, 900);
+  }
+
+  _applySetup() {
+    const setup = this._readInputs("data-setup");
+    this.setState({ setup: setup, setupStatus: "Applied — front page and K10 updated." });
+    this._showTab("front");
+    this._writeFile(this._setupFile(), setup).then((ok) => {
+      if (!ok) this.setState({ setupStatus: "Applied — but could not be saved to disk here." });
+    });
+  }
+
+  _saveCode() {
+    const entry = this._readInputs("data-code");
+    if (!entry.ref && !entry.sysRef) {
+      this.setState({ libraryStatus: "Enter at least a wall type reference or manufacturer code." });
+      return;
+    }
+    const manu = this._readInputs("data-setup");
+    entry.manufacturer = manu.manufacturer || manu.boardRange || "";
+    entry.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    const library = (this.state.library || []).concat([entry]);
+    this.setState({ library: library, libraryStatus: "Saved to your custom systems." });
+    this._writeFile(this._customFile(), library).then((ok) => {
+      if (!ok) this.setState({ libraryStatus: "Saved for this session only — no disk access here." });
+    });
+    document.querySelectorAll("[data-code]").forEach((el) => { el.value = ""; });
+  }
+
+  // Column order of each schedule table, so a completed row can be read back
+  // into the same field names the library uses.
+  _scheduleColumns(kind) {
+    return kind === "steel"
+      ? ["ref", "sysRef", "member", "fire", "factor", "duty", "buildup"]
+      : ["ref", "sysRef", "systemType", "acoustic", "fire", "height", "duty", "buildup"];
+  }
+
+  _cellText(td) {
+    return (td.innerText || td.textContent || "").replace(/\u200B/g, "")
+      .replace(/\s*\n\s*/g, ". ").replace(/\s+/g, " ").trim();
+  }
+
+  // The seed character an opened field carries is invisible and must never
+  // reach the library, a comparison, or the printed page.
+  _txt(el) {
+    return ((el && el.textContent) || "").replace(/\u200B/g, "").trim();
+  }
+
+  // Written, or still a prompt? One rule for the schedule and the clause, so
+  // the library can only ever hold text someone actually put there.
+  _worthKeeping(value) {
+    const v = (value || "").replace(/\u200B/g, "").trim();
+    return !!v && !/\bTBC\b/.test(v) && !/\[[^\]]*\]/.test(v);
+  }
+
+  _isPlaceholder(text) {
+    return !text || text === "TBC" || /^\[[^\]]*\]$/.test(text);
+  }
+
+  // Which .fill the caret is sitting in, if any.
+  _caretFill() {
+    const sel = window.getSelection();
+    if (!sel || !sel.anchorNode) return null;
+    const n = sel.anchorNode.nodeType === 1 ? sel.anchorNode : sel.anchorNode.parentElement;
+    return n && n.closest ? n.closest(".fill") : null;
+  }
+
+  // Click a placeholder and it behaves like an empty field: the grey mono
+  // prompt goes, the caret lands inside, and what gets typed is in the
+  // document's own face. Nothing is destroyed — leave without typing and the
+  // prompt comes back, so the sheet still reads as a list of what is
+  // outstanding.
+  _openFill(f) {
+    if (!f || !this._isPlaceholder(this._txt(f))) return;
+    if (!f.hasAttribute("data-placeholder")) {
+      f.setAttribute("data-placeholder", (f.textContent || "").replace(/\u200B/g, "").trim());
+    }
+    // An empty inline element will not reliably hold a caret, so seed it with
+    // a zero-width space and take it out again once there is real text.
+    f.textContent = "\u200B";
+    f.setAttribute("data-filled", "");
+    const r = document.createRange();
+    r.selectNodeContents(f);
+    r.collapse(false);
+    const sel = window.getSelection();
+    if (sel) { sel.removeAllRanges(); sel.addRange(r); }
+  }
+
+  // Any field opened and left untouched goes back to its prompt; any field
+  // actually written into keeps what was typed and stops being a placeholder.
+  _closeEmptyFills(except) {
+    document.querySelectorAll(".fill[data-placeholder]").forEach((f) => {
+      if (f === except) return;
+      if (this._txt(f)) {
+        // Strip the seed from the text nodes themselves. Rewriting textContent
+        // would concatenate across any <br> the browser inserted, quietly
+        // turning a multi-line note into one run-on line.
+        const walk = document.createTreeWalker(f, NodeFilter.SHOW_TEXT, null);
+        const spent = [];
+        while (walk.nextNode()) {
+          const n = walk.currentNode;
+          if (n.nodeValue.indexOf("\u200B") === -1) continue;
+          n.nodeValue = n.nodeValue.replace(/\u200B/g, "");
+          if (!n.nodeValue) spent.push(n);
+        }
+        spent.forEach((n) => n.parentNode && n.parentNode.removeChild(n));
+        f.removeAttribute("data-placeholder");
+        return;
+      }
+      f.textContent = f.getAttribute("data-placeholder");
+      f.removeAttribute("data-filled");
+      f.removeAttribute("data-placeholder");
+    });
+  }
+
+  // A clause page is a set of label / value rows. Reading them back gives the
+  // detail the schedule has no column for — stud configuration, track sizes,
+  // fixings, finishing — so a system carries its full clause next time.
+  _clauseFields(block) {
+    const fields = {};
+    let sysRef = "";
+    block.querySelectorAll("tr").forEach((tr) => {
+      const c = tr.cells;
+      if (!c || c.length < 2) return;
+      const label = this._cellText(c[0]);
+      const value = this._cellText(c[1]);
+      if (!label || !value) return;
+      // A value is only worth keeping once it is actually written. One that
+      // still carries a [placeholder] or a stray TBC — "TBC British Gypsum
+      // [Board range] TBC" — is half-finished, and collating it seeds the next
+      // specification with someone's unfinished sentence. Worse, the stored
+      // text would contain "TBC" and be written into a fresh clause as though
+      // it were the answer.
+      if (/\[[^\]]*\]/.test(value) || /\bTBC\b/.test(value)) return;
+      if (label.toLowerCase() === "system reference") { sysRef = value; return; }
+      fields[label] = value;
+    });
+    const head = block.querySelector("[data-clause-tag]");
+    const title = head && head.parentNode.firstElementChild;
+    const ref = title ? this._cellText(title).split("—")[0].trim() : "";
+    return { sysRef: sysRef, ref: ref, fields: fields };
+  }
+
+  // The build-up drawing is a property of the system, so it travels with the
+  // library entry rather than staying with the project it was first drawn on.
+  // Fingerprinted rather than compared outright: these are ~200kB data URLs and
+  // collation runs on a timer, so re-uploading an unchanged drawing on every
+  // pass would be the most expensive thing the app does.
+  _captureClauseImage(block, entry) {
+    const IS = window.ImageSlots, C = window.K10Cloud;
+    if (!IS || !C) return false;
+    const slot = block.querySelector("image-slot[id]");
+    if (!slot) return false;
+    const val = IS.get(slot.id);
+    if (!val || !val.u) return false;
+    const sig = val.u.length + ":" + val.u.slice(-32);
+    if (entry.imageSig === sig) return false;
+    entry.imageSig = sig;
+    entry.hasImage = true;
+    C.libraryImageSave(entry.sysRef || entry.ref || entry.id, val);
+    return true;
+  }
+
+  // …and comes back down onto a freshly generated clause for the same system.
+  _applyStoredImage(clone, entry) {
+    const IS = window.ImageSlots, C = window.K10Cloud;
+    if (!IS || !C || !entry.hasImage) return;
+    const slot = clone.querySelector("image-slot[id]");
+    if (!slot) return;
+    const id = slot.id;
+    // ready() first: before the sidecar has been merged an empty slot is
+    // indistinguishable from one that simply hasn't loaded, and overwriting a
+    // drawing the user dropped on this clause would be the worse mistake.
+    IS.ready().then(() => {
+      if (IS.get(id)) return;
+      return C.libraryImageLoad(entry.sysRef || entry.ref || entry.id).then((val) => {
+        if (val && val.u && !IS.get(id)) IS.set(id, val);
+      });
+    });
+  }
+
+  // Stored clause detail is written into a generated clause wherever the
+  // schedule left a TBC, so a re-used system arrives complete.
+  _applyStoredClause(clone, row) {
+    const key = row.sysRef || row.ref;
+    if (!key) return;
+    const entry = (this.state.library || []).find((e) => (e.sysRef || e.ref) === key && e.clause);
+    if (!entry) return;
+    this._applyStoredImage(clone, entry);
+    clone.querySelectorAll("tr").forEach((tr) => {
+      const c = tr.cells;
+      if (!c || c.length < 2) return;
+      const current = this._cellText(c[1]);
+      if (current && current !== "TBC") return;
+      const stored = entry.clause[this._cellText(c[0])];
+      if (stored) c[1].textContent = stored;
+    });
+  }
+
+  // Everything typed into the schedules is collated back into the shared custom
+  // library: rows already held are updated in place and the project is logged,
+  // so the library grows as specifications are issued rather than forking copies.
+  _captureSchedules(silent) {
+    const setup = this.state.setup || this._readInputs("data-setup");
+    const project = [setup.projectName, setup.projectNumber].filter(Boolean).join(" · ") || "Unnamed project";
+    const stamp = this._today();
+    const library = (this.state.library || []).slice();
+    // Only what this pass actually changed goes to the server: collation now
+    // runs on a timer, and upserting the whole library every few seconds would
+    // grow into a needless round trip as the library fills up.
+    const touched = [];
+    const mark = (e) => { if (touched.indexOf(e) === -1) touched.push(e); };
+    let added = 0, updated = 0;
+    ["wall", "ceiling", "steel"].forEach((kind) => {
+      const table = document.querySelector('table[data-schedule="' + kind + '"]');
+      if (!table) return;
+      const cols = this._scheduleColumns(kind);
+      Array.from(table.querySelectorAll("tbody tr")).forEach((tr) => {
+        if (tr.hasAttribute("data-blank-row")) return;
+        const cells = Array.from(tr.children);
+        if (cells.length < cols.length) return; // notes row or removed-type row
+        const entry = { kind: kind };
+        cols.forEach((c, i) => { entry[c] = this._cellText(cells[i]); });
+        const key = entry.sysRef || entry.ref;
+        // Skip untouched pro-forma rows — anything still in [square brackets].
+        if (!key || key.charAt(0) === "[") return;
+        const match = library.find((e) => (e.kind || "wall") === kind && (e.sysRef || e.ref) === key);
+        if (match) {
+          // Collation runs on a timer now, so a pass that finds nothing new
+          // must report nothing: counting an unchanged row as an update would
+          // rewrite the status line, and that edit would schedule the next
+          // pass — round and round without the document ever changing.
+          let changed = false;
+          cols.forEach((c) => {
+            // "ref" is this project's schedule label (SW-01), not part of the
+            // system's identity — writing it onto a shared entry makes two
+            // rows for one system fight over the same record forever.
+            if (c === "ref") return;
+            if (!this._worthKeeping(entry[c]) || match[c] === entry[c]) return;
+            match[c] = entry[c];
+            changed = true;
+          });
+          const logged = (match.projects || []).some((p) => p.project === project && p.ref === entry.ref);
+          if (!logged) {
+            // Additive: one system may legitimately appear as SW-01 and SW-02
+            // on the same job. Replacing the project's other entries here made
+            // each row undo the last, so every pass reported a change.
+            match.projects = (match.projects || []).concat([{ project: project, ref: entry.ref, date: stamp }]);
+            changed = true;
+          }
+          if (changed) {
+            match.updated = stamp;
+            mark(match);
+            updated++;
+          }
+        } else {
+          cols.forEach((c) => { if (!this._worthKeeping(entry[c])) delete entry[c]; });
+          if (!(entry.sysRef || entry.ref)) return;
+          entry.ref = entry.ref || key;
+          entry.manufacturer = setup.manufacturer || setup.boardRange || "";
+          entry.source = "Captured from specification";
+          entry.projects = [{ project: project, ref: entry.ref, date: stamp }];
+          entry.updated = stamp;
+          entry.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+          library.push(entry);
+          mark(entry);
+          added++;
+        }
+      });
+    });
+    // Clause detail is collated onto the same entry as the schedule row.
+    let clauses = 0, images = 0;
+    document.querySelectorAll("[data-clause-block]").forEach((block) => {
+      if (block.hasAttribute("data-clause-proforma")) return;
+      const read = this._clauseFields(block);
+      const key = read.sysRef || read.ref;
+      // A clause carrying only a drawing is still work worth keeping —
+      // "Generate full clauses" removes and rebuilds every generated block, so
+      // anything not collated first is gone with it.
+      const slotEl = block.querySelector("image-slot[id]");
+      const hasImg = !!(slotEl && window.ImageSlots && window.ImageSlots.get(slotEl.id));
+      if (!key || key.charAt(0) === "[") return;
+      if (!Object.keys(read.fields).length && !hasImg) return;
+      let match = library.find((e) => (e.sysRef || e.ref) === key) ||
+        library.find((e) => e.ref === read.ref);
+      // A clause written without a matching schedule row — one added by hand,
+      // or whose row was reworded — used to be dropped on the floor here. The
+      // detail is the office's work either way, so it earns its own entry.
+      if (!match) {
+        match = {
+          sysRef: read.sysRef,
+          ref: read.ref,
+          systemType: read.fields["System type"] || "",
+          manufacturer: read.fields["Manufacturer"] || setup.manufacturer || "",
+          source: "Captured from clause",
+          projects: [{ project: project, ref: read.ref, date: stamp }],
+          id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6)
+        };
+        library.push(match);
+        added++;
+      }
+      // Before the text comparison below: a drawing dropped without a word
+      // being changed is still a change, and returning early would lose it.
+      if (this._captureClauseImage(block, match)) {
+        match.updated = stamp;
+        mark(match);
+        images++;
+      }
+      const merged = Object.assign({}, match.clause || {}, read.fields);
+      if (JSON.stringify(merged) === JSON.stringify(match.clause || {})) return;
+      match.clause = merged;
+      match.updated = stamp;
+      mark(match);
+      clauses++;
+    });
+    if (!added && !updated && !clauses && !images) {
+      if (!silent) this.setState({ libraryStatus: "Nothing to collate — complete a schedule row first." });
+      return;
+    }
+    const counts = added + " new, " + updated + " updated, " +
+      clauses + " clause " + (clauses === 1 ? "page" : "pages") +
+      (images ? ", " + images + " " + (images === 1 ? "drawing" : "drawings") : "");
+    // Collating on its own as you type should read as a note, not an
+    // announcement; pressing the button is a deliberate act and says more.
+    const msg = silent
+      ? "Library updated · " + counts + " · " +
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      : "Collated into the library: " + counts + " (" + project + ", " + stamp + ").";
+    this.setState({ library: library, libraryStatus: msg });
+    this._libraryDelta = touched;
+    this._writeFile(this._customFile(), library).then((ok) => {
+      if (!ok) this.setState({ libraryStatus: msg + " Session only — no disk access here." });
+    });
+  }
+
+  _removeCode(id) {
+    const gone = (this.state.library || []).find((e) => e.id === id);
+    const library = (this.state.library || []).filter((e) => e.id !== id);
+    this.setState({ library: library, libraryStatus: "Entry deleted." });
+    // saveLibrary upserts, so it can add and amend but never remove — without
+    // this the entry is back on the next load.
+    const C = window.K10Cloud;
+    if (C && C.removeLibrary && gone) C.removeLibrary(gone.sysRef || gone.ref || gone.id);
+    this._writeFile(this._customFile(), library);
+  }
+
+  // Issue date defaults to today until the setup form overrides it.
+  _today() {
+    const d = new Date(), p = (n) => String(n).padStart(2, "0");
+    return p(d.getDate()) + "." + p(d.getMonth() + 1) + "." + d.getFullYear();
+  }
+
+  _pickVals() { return this._readInputs("data-pick"); }
+
+  // Performance values are free text in the library, so the dropdowns work off
+  // numbers pulled out of them. Missing values mean "not published", never zero.
+  _fireMins(r) { const m = /(\d+)\s*(?::\s*\d+)?\s*minutes/i.exec(r.fire || ""); return m ? parseInt(m[1], 10) : null; }
+  _rw(r) { const m = /(\d+)\s*dB\s*Rw/i.exec(r.acoustic || ""); return m ? parseInt(m[1], 10) : null; }
+  _maxHeight(r) {
+    const nums = String(r.height || "").match(/(\d{3,5})\s*mm/g) || [];
+    const vals = nums.map((s) => parseInt(s, 10)).filter((n) => n >= 1000);
+    return vals.length ? Math.max.apply(null, vals) : null;
+  }
+
+  // Board products named in the library, longest first so "SoundBloc MR" wins over "SoundBloc".
+  _boardNames(r) {
+    const products = ["Glasroc F FireCase", "Glasroc F Multiboard", "Gyproc SoundBloc MR", "Gyproc SoundBloc",
+      "Gyproc FireLine MR", "Gyproc FireLine", "Gyproc DuraLine", "Gyproc Moisture Resistant", "Gyproc WallBoard",
+      "Gyproc Plank", "Gyprex Satinspar", "Gyprex Bio", "Rigitone", "Gyptone"];
+    const text = [r.boards, r.buildup].filter(Boolean).join(" ");
+    const found = [];
+    let rest = text;
+    products.forEach((p) => {
+      if (rest.toLowerCase().indexOf(p.toLowerCase()) !== -1) {
+        found.push(p);
+        rest = rest.replace(new RegExp(p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi"), " ");
+      }
+    });
+    return found;
+  }
+
+  _matches(pick) {
+    const kind = pick.kind || "wall";
+    const fam = pick.family || "";
+    const q = (pick.query || "").toLowerCase();
+    const fire = pick.fire ? parseInt(pick.fire, 10) : null;
+    const rw = kind === "wall" && pick.acoustic ? parseInt(pick.acoustic, 10) : null;
+    const ht = kind === "wall" && pick.height ? parseInt(pick.height, 10) : null;
+    return (this.state.catalog || []).filter((r) => {
+      if (r.kind !== kind) return false;
+      if (fam && r.family !== fam) return false;
+      if (fire !== null && this._fireMins(r) !== fire) return false;
+      if (rw !== null) { const v = this._rw(r); if (v === null || v < rw) return false; }
+      if (ht !== null) { const v = this._maxHeight(r); if (v === null || v < ht) return false; }
+      if (pick.board && this._boardNames(r).indexOf(pick.board) === -1) return false;
+      if (!q) return true;
+      return [r.ref, r.family, r.systemType, r.fire, r.acoustic, r.duty, r.width, r.boards, r.insulation, r.framing]
+        .join(" ").toLowerCase().indexOf(q) !== -1;
+    });
+  }
+
+  _insertPick() {
+    const pick = this._pickVals();
+    const entry = (this.state.catalog || []).find((r) => r.id === pick.id) || this._matches(pick)[0];
+    if (!entry) { this.setState({ pickStatus: "Choose a system first." }); return; }
+    this._insertRow(entry, pick.projectRef);
+  }
+
+  // Inserts a row into the drylining schedule using the table's existing
+  // blank row as the template, so the table's own layout never changes.
+  _insertRow(entry, projectRef) {
+    const kind = entry.kind || "wall";
+    const blank = document.querySelector('table[data-schedule="' + kind + '"] tr[data-blank-row]');
+    if (!blank) return;
+    const row = blank.cloneNode(true);
+    row.removeAttribute("data-blank-row");
+    row.setAttribute("data-inserted-row", "");
+    const heights = [entry.height, entry.h600, entry.h400, entry.h300].filter(Boolean);
+    const description = [entry.buildup, entry.insulation && !String(entry.buildup || "").includes(entry.insulation) ? entry.insulation : "",
+      entry.width ? entry.width.indexOf("Plenum") === 0 ? entry.width : "Overall width: " + entry.width : "",
+      entry.weight ? "Weight: " + entry.weight : "", entry.certification || ""].filter(Boolean).join(". ");
+    const values = kind === "steel" ? [
+      projectRef || entry.ref || "TBC",
+      entry.sysRef || "TBC",
+      entry.member || entry.systemType || "TBC",
+      entry.fire || "TBC",
+      entry.factor || "TBC",
+      entry.duty || "N/A",
+      description || "TBC"
+    ] : [
+      projectRef || entry.ref || "TBC",
+      entry.sysRef || "TBC",
+      entry.systemType || "TBC",
+      entry.acoustic || "TBC",
+      entry.fire || "TBC",
+      heights.length ? heights.join(" | ") : "TBC",
+      entry.duty || "TBC",
+      description || "TBC"
+    ];
+    const heightCol = kind === "steel" ? -1 : 5;
+    Array.from(row.cells).forEach((cell, i) => {
+      if (i >= values.length) return;
+      cell.textContent = values[i];
+      if (i === heightCol && heights.length > 1) {
+        cell.textContent = "";
+        heights.forEach((h, n) => {
+          if (n) cell.appendChild(document.createElement("br"));
+          cell.appendChild(document.createTextNode(h));
+        });
+      }
+    });
+    blank.parentNode.insertBefore(row, blank);
+    this._makeEditable();
+    const where = kind === "ceiling" ? "ceiling" : kind === "steel" ? "steel encasement" : "drylining";
+    const msg = (entry.ref || "System") + " inserted into the " + where + " schedule (tab 3).";
+    this.setState({ libraryStatus: msg, pickStatus: msg });
+  }
+
+  _decorateClauses() {
+    document.querySelectorAll("[data-clause-block]").forEach((block) => {
+      if (block.querySelector("[data-clause-remove]")) return;
+      this._addRemoveControl(block);
+    });
+  }
+
+  _removeNode(node) {
+    this._removed = this._removed || [];
+    this._removed.push({ node: node, parent: node.parentNode, next: node.nextSibling });
+    node.remove();
+    this._clauseNote("Clause removed — Undo remove restores it.");
+  }
+
+  // Each added or generated clause carries its own remove control in its header.
+  _addRemoveControl(clone) {
+    const tag = clone.querySelector("[data-clause-tag]");
+    if (!tag) return;
+    // A clone inherits the source block's button element but not its
+    // listener — drop any inherited control before binding a live one.
+    clone.querySelectorAll("[data-clause-remove]").forEach((b) => b.remove());
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "rail";
+    btn.setAttribute("data-clause-remove", "");
+    btn.textContent = "− Remove clause";
+    btn.setAttribute("style", "margin-left:12px;appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 8pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:5px 9px;cursor:pointer;white-space:nowrap");
+    btn.addEventListener("click", () => this._removeNode(clone));
+    btn.setAttribute("contenteditable", "false");
+    tag.parentNode.appendChild(btn);
+  }
+
+  _undoRemoveClause() {
+    const stack = this._removed || [];
+    if (!stack.length) {
+      this._clauseNote("Nothing to restore.");
+      return;
+    }
+    const last = stack.pop();
+    last.parent.insertBefore(last.node, last.next);
+    this._clauseNote("Clause restored.");
+  }
+
+  _newSlotIds(clone) {
+    const stamp = Math.random().toString(36).slice(2, 8);
+    clone.querySelectorAll("image-slot").forEach((slot, i) => {
+      slot.id = "clause-" + stamp + "-" + i;
+    });
+  }
+
+  _fillClause(clone, row) {
+    const setRow = (label, value) => {
+      clone.querySelectorAll("tr").forEach((tr) => {
+        const c = tr.cells;
+        if (c.length < 2) return;
+        if (c[0].textContent.trim().toLowerCase() === label.toLowerCase()) {
+          c[1].textContent = value;
+        }
+      });
+    };
+    setRow("System reference", row.sysRef || "TBC");
+    setRow("Fire resistance (minutes)", row.fire || "TBC");
+    setRow("Duty rating (BS 5234)", row.duty || "TBC");
+    setRow("Additional notes", row.description || "TBC");
+    if (row.systemType) setRow("System type", row.systemType);
+    if (row.kind === "steel") {
+      // The steel schedule carries member type and section factor, not
+      // acoustic performance or a partition height.
+      setRow("System type", row.member || "TBC");
+      setRow("Sound insulation (dB Rw)", "N/A");
+      setRow("Maximum height (mm)", "TBC");
+      setRow("Thermal", "TBC");
+      setRow("Overall width (mm)", row.factor || "TBC");
+    } else {
+      setRow("Sound insulation (dB Rw)", row.acoustic || "TBC");
+      setRow("Maximum height (mm)", row.height || "TBC");
+    }
+    // Anything the schedule cannot supply stays as a labelled TBC.
+    clone.querySelectorAll(".fill").forEach((el) => {
+      el.textContent = "TBC";
+    });
+    // …unless this system's clause detail has been collated before.
+    this._applyStoredClause(clone, row);
+  }
+
+  _generateClauses() {
+    const proforma = document.querySelector("[data-clause-proforma]");
+    if (!proforma) return;
+    this._captureSchedules(true);
+    document.querySelectorAll("[data-clause-generated]").forEach((el) => el.remove());
+    const rows = [];
+    document.querySelectorAll("table[data-schedule] tbody tr").forEach((tr) => {
+      const c = tr.cells;
+      if (c.length < 7) return;
+      // Split on <br> boundaries only, so multi-line cells keep their lines
+      // and inline markup (superscripts, <strong>) stays intact.
+      const lines = (i) => {
+        const out = [];
+        let cur = "";
+        Array.from(c[i].childNodes).forEach((n) => {
+          if (n.nodeName === "BR") { out.push(cur); cur = ""; }
+          else if (n.nodeName === "SUP") {
+            const sup = { "-": "⁻", "1": "¹", "2": "²", "3": "³" };
+            cur += (n.textContent || "").replace(/[-123]/g, (ch) => sup[ch]);
+          }
+          else cur += n.textContent || "";
+        });
+        out.push(cur);
+        return out.map((t) => t.replace(/\s+/g, " ").trim()).filter(Boolean);
+      };
+      const txt = (i) => lines(i).join(" ");
+      const ref = txt(0);
+      if (!ref || ref.charAt(0) === "[") return;
+      const kind = tr.closest("table").getAttribute("data-schedule");
+      const steel = kind === "steel";
+      // Wall and ceiling schedules carry a System/Ceiling type column that the
+      // steel schedule replaces with member type — hence the index shift.
+      rows.push({
+        kind: kind,
+        ref: ref,
+        sysRef: txt(1),
+        systemType: steel ? "" : txt(2),
+        member: steel ? txt(2) : "",
+        acoustic: steel ? "" : txt(3),
+        fire: txt(steel ? 3 : 4),
+        height: steel ? "" : lines(5).join(" / "),
+        factor: steel ? lines(4).join(" — ") : "",
+        duty: txt(steel ? 5 : 6),
+        description: txt(steel ? 6 : 7)
+      });
+    });
+    if (!rows.length) { this.setState({ status: "No completed schedule rows to generate from." }); return; }
+    const frag = document.createDocumentFragment();
+    rows.forEach((row) => {
+      const clone = proforma.cloneNode(true);
+      clone.removeAttribute("data-clause-proforma");
+      clone.setAttribute("data-clause-generated", "");
+      this._newSlotIds(clone);
+      const tag = clone.querySelector("[data-clause-tag]");
+      const title = tag && tag.parentNode.firstElementChild;
+      if (title) title.textContent = row.ref + " — TBC";
+      if (tag) tag.textContent = "Generated from schedule — complete TBC items";
+      this._addRemoveControl(clone);
+      this._fillClause(clone, row);
+      frag.appendChild(clone);
+    });
+    const added = document.querySelectorAll("[data-clause-added]");
+    const last = added.length ? added[added.length - 1] : proforma;
+    last.parentNode.insertBefore(frag, last.nextSibling);
+    this._makeEditable();
+  }
+
+  renderVals() {
+    const p = this.props;
+    const sv = this.state.setup || {};
+    const pick = (key, fallback) => sv[key] || p[key] || fallback;
+    const catalog = this.state.catalog || [];
+    const pickState = this.state.pick || { kind: "wall", family: "", query: "", id: "" };
+    const kind = pickState.kind || "wall";
+    const families = [];
+    catalog.forEach((r) => {
+      if (r.kind === kind && families.indexOf(r.family) === -1) families.push(r.family);
+    });
+    // Dropdown options come from what is actually published for this schedule.
+    const inKind = catalog.filter((r) => r.kind === kind && (!pickState.family || r.family === pickState.family));
+    const uniqSorted = (list) => Array.from(new Set(list.filter((n) => n !== null))).sort((a, b) => a - b);
+    const fireOptions = uniqSorted(inKind.map((r) => this._fireMins(r)))
+      .map((n) => ({ value: String(n), label: n + " minutes" }));
+    const rwVals = uniqSorted(inKind.map((r) => this._rw(r)));
+    const acousticOptions = rwVals.map((n) => ({ value: String(n), label: n + " dB Rw or better" }));
+    const htVals = uniqSorted(inKind.map((r) => this._maxHeight(r)));
+    const heightOptions = htVals.map((n) => ({ value: String(n), label: n + "mm or higher" }));
+    const boards = [];
+    inKind.forEach((r) => this._boardNames(r).forEach((b) => { if (boards.indexOf(b) === -1) boards.push(b); }));
+    const boardOptions = boards.sort().map((b) => ({ value: b, label: b }));
+    const matches = this._matches(pickState);
+    const chosen = catalog.find((r) => r.id === pickState.id) || matches[0];
+    // Compact fire notation for the picker only — the schedule keeps the full wording.
+    const fireShort = (v) => (v || "").replace(/\s*minutes\s*tested to\s*/i, " to ").replace(/BS\s*EN\s*/gi, "BSEN ");
+    const summarise = (r) => r ? [r.family + " " + r.ref, r.systemType, fireShort(r.fire), r.acoustic, r.duty, r.height,
+      r.width, r.boards, r.insulation].filter(Boolean).join("  ·  ") : "No system selected.";
+    // Blank performance means not published — say so rather than leaving a gap.
+    const np = "Not published";
+    const pickRows = chosen ? [
+      { label: "System", value: [chosen.family, chosen.ref].filter(Boolean).join("  ·  ") },
+      { label: "Type", value: chosen.systemType || np },
+      { label: "Fire", value: chosen.fire || np },
+      { label: "Acoustic", value: chosen.acoustic || np },
+      { label: kind === "steel" ? "Section factor" : "Duty", value: (kind === "steel" ? chosen.factor : chosen.duty) || np },
+      { label: kind === "ceiling" ? "Max suspension" : "Max height", value: chosen.height || np },
+      { label: kind === "wall" ? "Stud / framing" : "Framing", value: [chosen.framing, chosen.track, chosen.resilientBars, chosen.hanger].filter(Boolean).join("; ") || np },
+      { label: "Boards", value: !chosen.boards ? np
+        : /^\s*\d+(\.\d+)?mm\s*$/.test(chosen.boards) ? chosen.boards + " — board type not published for this system"
+        : chosen.boards },
+      { label: "Insulation", value: chosen.insulation || np },
+      { label: kind === "ceiling" ? "Plenum" : "Overall width", value: chosen.width || np },
+      { label: "Weight", value: chosen.weight || np }
+    ] : [{ label: "System", value: "No system selected." }];
+    const library = (this.state.library || []).map((e) => ({
+      title: [e.ref, e.sysRef].filter(Boolean).join("  ·  "),
+      summary: [e.manufacturer, e.systemType || e.member, e.acoustic, e.fire, e.height || e.h600,
+        e.clause ? "Full clause held (" + Object.keys(e.clause).length + " fields)" : "",
+        (e.projects && e.projects.length) ? "Used on: " + e.projects.map((p) => p.project).join("; ") : "",
+        e.updated ? "Last updated " + e.updated : ""]
+        .filter(Boolean).join(" · ") || "No performance data recorded",
+      insert: () => this._insertRow(e),
+      remove: () => this._removeCode(e.id)
+    }));
+    return {
+      status: this.state.status,
+      setupStatus: this.state.setupStatus || "Nothing applied yet.",
+      libraryStatus: this.state.libraryStatus || "",
+      library: library,
+      libraryCount: library.length + (library.length === 1 ? " entry" : " entries"),
+      catalogCount: catalog.length ? catalog.length + " systems imported" : "Library not loaded",
+      familyOptions: families.map((f) => ({ value: f, label: f })),
+      fireOptions: fireOptions,
+      boardOptions: boardOptions,
+      acousticOptions: acousticOptions,
+      heightOptions: heightOptions,
+      showAcoustic: kind === "wall" && acousticOptions.length > 0,
+      showHeight: kind === "wall" && heightOptions.length > 0,
+      pickOptions: matches.slice(0, 400).map((r) => ({
+        value: r.id,
+        label: [r.ref, r.systemType, fireShort(r.fire), r.acoustic, r.height].filter(Boolean).join("  ·  ")
+      })),
+      matchCount: matches.length + (matches.length === 1 ? " match" : " matches"),
+      pickSummary: summarise(chosen),
+      pickRows: pickRows,
+      pickStatus: this.state.pickStatus || "Inserts a row into the matching schedule table on tab 3.",
+      onPick: () => this.setState({ pick: this._pickVals(), pickStatus: "" }),
+      insertPick: () => this._insertPick(),
+      captureSchedules: () => this._captureSchedules(false),
+      saveCopy: () => this._saveCopy(),
+      addClause: () => this._addClause(),
+      generateClauses: () => this._generateClauses(),
+      undoRemoveClause: () => this._undoRemoveClause(),
+      applySetup: () => this._applySetup(),
+      saveCode: () => this._saveCode(),
+      printDoc: () => this._printDoc(),
+      companyName: pick("companyName", "GA Interiors Ltd."),
+      specBrand: pick("specBrand", "GA Technical Specification"),
+      manufacturer: pick("manufacturer", "[Manufacturer]"),
+      boardRange: pick("boardRange", "[Board range]"),
+      projectName: pick("projectName", "[Project name]"),
+      projectAddress: pick("projectAddress", "[Address, Town, Postcode]"),
+      mainContractor: pick("mainContractor", "[Main contractor]"),
+      subContractor: pick("subContractor", "[Drylining sub-contractor]"),
+      architect: pick("architect", "[Architect]"),
+      issuedBy: pick("issuedBy", "Samuel Dann — Head of Design & Technical"),
+      issuedByTel: pick("issuedByTel", "07594 131593"),
+      issuedByEmail: pick("issuedByEmail", "samuel@gainteriorsltd.com"),
+      docRef: sv.projectNumber || p.docRef || "[BPD000000]",
+      revision: pick("revision", "A"),
+      issueDate: pick("issueDate", this._today()),
+      showGuidance: p.showGuidance ?? true
+    };
+  }
+}
+</script>
+
+
+</body></html>
