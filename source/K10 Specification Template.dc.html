@@ -230,6 +230,9 @@
      "still to be written". One face throughout, filled or not. */
   .fill{color:#5a5a5a}
   .fill[data-filled]{color:inherit}
+  /* The browser's default subscript drop reads as a typo at 9pt — the w
+     in Rw sits nearly a half-line down. Keep the small face, raise it. */
+  sub{font-size:0.7em;vertical-align:-0.15em;line-height:0}
   .kt{break-inside:avoid;orphans:3;widows:3}
 </style>
 <script src="doc-page.js"></script>
@@ -393,7 +396,7 @@
             </sc-raw-select>
           </label>
           <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Project reference
-            <input data-pick="projectRef" type="text" placeholder="[XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 'IBM Plex Mono',monospace;background:#fff">
+            <input data-pick="projectRef" type="text" placeholder="[XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
           </label>
           <label style="display:flex;flex-direction:column;gap:3px;font-size:7pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Fire resistance
             <sc-raw-select data-pick="fire" sc-camel-on-change="{{ onPick }}" style="border:1px solid #000;padding:6px 7px;font:400 9.5pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
@@ -458,8 +461,8 @@
 
       <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555;margin-top:16px">Add a custom system — not in the library</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px">
-        <input data-code="ref" type="text" placeholder="Wall type ref [XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 'IBM Plex Mono',monospace;background:#fff">
-        <input data-code="sysRef" type="text" placeholder="Manufacturer code" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 'IBM Plex Mono',monospace;background:#fff">
+        <input data-code="ref" type="text" placeholder="Wall type ref [XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="sysRef" type="text" placeholder="Manufacturer code" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="systemType" type="text" placeholder="System type (shaftwall)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="acoustic" type="text" placeholder="Acoustic (54 dB Rw)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="fire" type="text" placeholder="Fire (60:60 BS EN 1364-1)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
@@ -676,6 +679,7 @@
     <button type="button" sc-camel-on-click="{{ captureSchedules }}" style="appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 13px;cursor:pointer;white-space:nowrap" style-hover="background:#f0f0f0">Collate schedule into library</button>
     <span style="font-size:7.5pt;line-height:1.4;color:#8a8a8a;max-width:60ch">Builds one clause per scheduled type, carrying over reference, acoustic, fire, height and duty. Collating writes every completed row back to the shared custom library, updating systems already held and logging the project against them.</span>
   </div>
+  <div class="rail" id="schedule-actions-status" data-status-text="" style="font:600 8pt/1.4 Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:8px;min-height:1em"></div>
 </section>
 
 <section data-tabpane="k10" style="break-before:page;font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:34px;padding-top:26px;border-top:3px double #000">
@@ -701,7 +705,7 @@
         <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
           <sc-raw-tbody>
             <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">System type</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[System name and family]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Company, address, postcode]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Metal Manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Company, address, postcode]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">{{ manufacturer }} — {{ boardRange }} range</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">System reference</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[SYSTEM-REF]</span></sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
@@ -896,6 +900,7 @@ class Component extends DCLogic {
     });
     const tag = clone.querySelector("[data-clause-tag]");
     if (tag) tag.textContent = "New clause — complete and rename";
+    this._patchLegacyClause(clone);
     this._addRemoveControl(clone);
     const added = document.querySelectorAll("[data-clause-added]");
     const last = added.length ? added[added.length - 1] : proforma;
@@ -909,6 +914,16 @@ class Component extends DCLogic {
 
   _clauseNote(msg) {
     const el = document.getElementById("clause-remove-status");
+    if (el) el.textContent = msg;
+  }
+
+  // The generate/collate buttons sit under the schedules, a long way from the
+  // cloud bar and the library panel where their outcomes report — pressing
+  // them looked like a dead click whenever the result wasn't a visible new
+  // clause. Echo the outcome beside the buttons themselves. The element
+  // carries data-status-text, so the observer ignores the write.
+  _scheduleNote(msg) {
+    const el = document.getElementById("schedule-actions-status");
     if (el) el.textContent = msg;
   }
 
@@ -1076,15 +1091,20 @@ class Component extends DCLogic {
       });
   }
 
-  // The Plasterboard lining cell used to be three pieces — two prompts either
-  // side of bound manufacturer text. Restored documents still carry that
-  // shape, pro-forma included, so fold any cell that was never actually
-  // written into the single prompt the template has now.
-  _patchLegacyLining(root) {
+  // Restored and cloned clause blocks carry whatever shape they were saved
+  // with, not the template's current one, so template corrections have to be
+  // re-applied to old markup wherever it re-enters the document: restore, and
+  // every clone of a pro-forma that may itself be restored markup. The
+  // three-piece Plasterboard lining cell folds into today's single prompt
+  // (only while it still holds prompts — a written cell stays), and the
+  // system table's Manufacturer label reads Metal Manufacturer.
+  _patchLegacyClause(root) {
     root.querySelectorAll("tr").forEach((tr) => {
       const c = tr.cells;
       if (!c || c.length < 2) return;
-      if (this._cellText(c[0]) !== "Plasterboard lining") return;
+      const label = this._cellText(c[0]);
+      if (label === "Manufacturer") { c[0].textContent = "Metal Manufacturer"; return; }
+      if (label !== "Plasterboard lining") return;
       const t = this._cellText(c[1]);
       if (/\[Board range\]/.test(t) || /^\[0 x 00mm/.test(t)) {
         c[1].innerHTML = '<span class="fill">[0 x 00mm board type, each side / room side]</span>';
@@ -1218,7 +1238,7 @@ class Component extends DCLogic {
       this._fillNodes().forEach((el, i) => { if (fills[i] != null) el.innerHTML = this._scrubHtml(fills[i]); });
     }
 
-    document.querySelectorAll("[data-clause-block]").forEach((b) => this._patchLegacyLining(b));
+    document.querySelectorAll("[data-clause-block]").forEach((b) => this._patchLegacyClause(b));
     this._makeEditable();
     this._closeEmptyFills(null);
     // Mutation records are delivered asynchronously, so every change made while
@@ -1773,8 +1793,13 @@ class Component extends DCLogic {
       const c = tr.cells;
       if (!c || c.length < 2) return;
       const current = this._cellText(c[1]);
-      if (current && current !== "TBC") return;
-      const stored = entry.clause[this._cellText(c[0])];
+      // Any unwritten cell can take stored detail — a bracket prompt is as
+      // empty as a TBC.
+      if (current && !this._isPlaceholder(current)) return;
+      const label = this._cellText(c[0]);
+      // Library entries collated before the rename hold the old key.
+      const stored = entry.clause[label] ||
+        (label === "Metal Manufacturer" ? entry.clause["Manufacturer"] : "");
       if (stored) c[1].textContent = stored;
     });
   }
@@ -1873,7 +1898,7 @@ class Component extends DCLogic {
           sysRef: read.sysRef,
           ref: read.ref,
           systemType: read.fields["System type"] || "",
-          manufacturer: read.fields["Manufacturer"] || setup.manufacturer || "",
+          manufacturer: read.fields["Metal Manufacturer"] || read.fields["Manufacturer"] || setup.manufacturer || "",
           source: "Captured from clause",
           projects: [{ project: project, ref: read.ref, date: stamp }],
           id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6)
@@ -1896,7 +1921,10 @@ class Component extends DCLogic {
       clauses++;
     });
     if (!added && !updated && !clauses && !images) {
-      if (!silent) this.setState({ libraryStatus: "Nothing to collate — complete a schedule row first." });
+      if (!silent) {
+        this.setState({ libraryStatus: "Nothing to collate — complete a schedule row first." });
+        this._scheduleNote("Nothing to collate — complete a schedule row first.");
+      }
       return;
     }
     const counts = added + " new, " + updated + " updated, " +
@@ -1909,6 +1937,7 @@ class Component extends DCLogic {
         new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
       : "Collated into the library: " + counts + " (" + project + ", " + stamp + ").";
     this.setState({ library: library, libraryStatus: msg });
+    if (!silent) this._scheduleNote(msg);
     this._libraryDelta = touched;
     this._writeFile(this._customFile(), library).then((ok) => {
       if (!ok) this.setState({ libraryStatus: msg + " Session only — no disk access here." });
@@ -2089,6 +2118,7 @@ class Component extends DCLogic {
   }
 
   _fillClause(clone, row) {
+    this._patchLegacyClause(clone);
     const setRow = (label, value) => {
       clone.querySelectorAll("tr").forEach((tr) => {
         const c = tr.cells;
@@ -2169,7 +2199,11 @@ class Component extends DCLogic {
         description: txt(steel ? 6 : 7)
       });
     });
-    if (!rows.length) { this.setState({ status: "No completed schedule rows to generate from." }); return; }
+    if (!rows.length) {
+      this.setState({ status: "No completed schedule rows to generate from." });
+      this._scheduleNote("No completed schedule rows to generate from — a row counts once its reference is no longer a [bracketed] prompt.");
+      return;
+    }
     const frag = document.createDocumentFragment();
     rows.forEach((row) => {
       const clone = proforma.cloneNode(true);
@@ -2188,6 +2222,7 @@ class Component extends DCLogic {
     const last = added.length ? added[added.length - 1] : proforma;
     last.parentNode.insertBefore(frag, last.nextSibling);
     this._makeEditable();
+    this._scheduleNote("Generated " + rows.length + " clause " + (rows.length === 1 ? "page" : "pages") + " — in the Full clauses section below.");
   }
 
   renderVals() {
