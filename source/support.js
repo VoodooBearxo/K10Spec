@@ -634,9 +634,17 @@
         { key },
         list.map((item, i) => {
           const sub = { ...vals, [asName]: item, $index: i };
+          // Key by slot AND item identity: Chrome's native listbox does not
+          // reliably repaint <option> text mutated in place, so a slot whose
+          // item changed must get a NEW element (fresh key), not a patched
+          // one — stale labels otherwise sit over the real options and
+          // clicks land on the wrong system. Index stays in the key so
+          // duplicate identities can never collide.
+          const ident = item && typeof item === "object" ? (item.value !== void 0 ? item.value : item.id) : item;
+          const key = ident === void 0 || ident === null ? i : i + "|" + String(ident);
           return h(
             getReact().Fragment,
-            { key: i },
+            { key },
             kids.map((b, j) => b(sub, ctx, j))
           );
         })

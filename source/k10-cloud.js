@@ -119,21 +119,31 @@
       return client().then(function (c) { return c.from("k10_specs").delete().eq("id", id); });
     },
 
-    // The manufacturer catalogue now lives in Postgres, so the app no longer
-    // carries 460 systems in its own file.
+    // The manufacturer catalogue lives in Postgres. Fetched in pages:
+    // Supabase caps any single select at 1000 rows, which silently dropped
+    // 65 systems once the catalogue grew past it.
     catalog: function () {
       return client().then(function (c) {
-        return c.from("k10_systems").select("record").order("family").order("id");
-      }).then(function (r) {
-        if (r.error) throw new Error(r.error.message);
-        return (r.data || []).map(function (row) { return row.record; });
+        var out = [];
+        var PAGE = 1000;
+        var fetchPage = function (from) {
+          return c.from("k10_systems").select("record").order("family").order("id")
+            .range(from, from + PAGE - 1).then(function (r) {
+              if (r.error) throw new Error(r.error.message);
+              (r.data || []).forEach(function (row) { out.push(row.record); });
+              return (r.data || []).length === PAGE ? fetchPage(from + PAGE) : out;
+            });
+        };
+        return fetchPage(0);
       });
     },
 
     // Collated systems are shared across every K10 this user writes.
     library: function () {
       return client().then(function (c) {
-        return c.from("k10_library").select("*").order("system_code");
+        // Insertion order, not alphabetical — the list should read as the
+        // office's history of additions.
+        return c.from("k10_library").select("*").order("created_at");
       }).then(function (r) { return r.error ? [] : (r.data || []); });
     },
 

@@ -623,7 +623,7 @@
   <h2 style="font-size:15pt;font-weight:700;margin:0;letter-spacing:-0.01em">Specification schedule</h2>
   <p style="font-size:9pt;line-height:1.5;margin:6px 0 0 0;max-width:78ch">All specifications shown are covered by the {{ specBrand }} Performance Warranty. Refer to the full clauses that follow for complete build-up, fixing and detailing requirements.</p>
 
-  <div style="margin-top:14px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Drylining specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <div style="margin-top:14px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Drylining specification — {{ manufacturer }} boards</div>
 
   <sc-raw-table data-schedule="wall" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35;margin-top:0">
     <sc-raw-thead>
@@ -656,7 +656,7 @@
     </sc-raw-tbody>
   </sc-raw-table>
 
-  <div data-schedule-break="" style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Ceiling specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <div data-schedule-break="" style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Ceiling specification — {{ manufacturer }} boards</div>
   <sc-raw-table data-schedule="ceiling" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35">
     <sc-raw-thead>
       <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
@@ -687,7 +687,7 @@
     </sc-raw-tbody>
   </sc-raw-table>
 
-  <div data-schedule-break="" style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Steel encasement specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <div data-schedule-break="" style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Steel encasement specification — {{ manufacturer }} boards</div>
   <sc-raw-table data-schedule="steel" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35">
     <sc-raw-thead>
       <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
@@ -731,12 +731,13 @@
   </div>
   <p class="rail" style="font-size:9pt;margin:10px 0;color:#555;max-width:80ch">One clause block per system reference, in schedule order. Use <strong>+ Add clause</strong> at the end of this section to append another blank clause page.</p>
   <div class="rail" style="display:flex;align-items:center;gap:8px;margin:0 0 16px 0">
+    <button type="button" sc-camel-on-click="{{ saveAllClauses }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer;white-space:nowrap" style-hover="background:#333;border-color:#333">Save all to library</button>
     <button type="button" sc-camel-on-click="{{ undoRemoveClause }}" style="appearance:none;border:1px solid #8a8a8a;background:#fff;color:#555;font:500 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer;white-space:nowrap" style-hover="background:#f0f0f0;border-color:#000;color:#000">Undo remove</button>
     <span id="clause-remove-status" style="font-size:7.5pt;line-height:1.4;color:#8a8a8a"></span>
   </div>
 
   <div data-clause-block="" data-clause-proforma="" class="rail" style="break-before:page;margin-top:34px;padding-top:26px;border-top:1.5px solid #000">
-    <div style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1.5px solid #000">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1.5px solid #000">
       <div style="font-size:13pt;font-weight:700;letter-spacing:-0.01em"><span class="fill" style="font-size:13pt">[XX-000]</span> — <span class="fill" style="font-size:13pt">[System name]</span></div>
       <div data-clause-tag="" style="font-size:8pt;text-transform:uppercase;letter-spacing:0.1em;color:#555">Blank pro-forma — duplicate per system</div>
     </div>
@@ -763,8 +764,8 @@
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Sound insulation (dB R<sub>w</sub>)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[00 (-0;-0)]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Thermal</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[U-value W/(m².K) or N/A]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Duty rating (BS 5234)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Light / Medium / Heavy / Severe]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Limiting deflection</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[L/240]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Maximum air pressure</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[200Pa]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Limiting deflection</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">L/240</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Maximum air pressure</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">200Pa</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Maximum height (mm)</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0000mm at 600mm centres]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Overall width (mm)</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[000mm]</span></sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
@@ -778,14 +779,15 @@
           </sc-raw-tbody>
         </sc-raw-table>
 
-        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Construction</div>
+        <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Deflection head</div>
         <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
           <sc-raw-tbody>
             <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">General</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">To be installed in accordance with all relevant clauses, the manufacturer's literature and BS 8000-8:2023.</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Head condition</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Condition and detail reference]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Deflection head</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[+/- 00mm TBC by Structural Engineer]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Deflection allowance</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">25mm (to be confirmed by Structural Engineer)</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Deflection head fillets</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Board type and thickness]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Deflection head angles</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[N/A]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Deflection head angles</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[N/A]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Deflection head insulation</sc-raw-td><sc-raw-td style="padding:3px 0;">Stone Mineral Wool (min 33kg/m³) to be installed within head void.</sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
         </sc-raw-table>
 
@@ -802,8 +804,9 @@
         <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Boarding</div>
         <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
           <sc-raw-tbody>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Plasterboard lining</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0 x 00mm board type, each side / room side]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Horizontal joints</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Support method]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Plasterboard lining - Side 1</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0 x 00mm board type]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Plasterboard lining - Side 2</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[0 x 00mm board type]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Horizontal joints</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">British Gypsum Gypframe GFS1 Fixing Strap</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Fixings</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Screw sizes and centres, clause reference]</span></sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
         </sc-raw-table>
@@ -1143,6 +1146,10 @@ class Component extends DCLogic {
   _scrubHtml(html) {
     if (typeof html !== "string") return html;
     return html
+      // Screen-only row controls are re-attached live by _decorateScheduleRows;
+      // saved markup must carry the schedule, not the chrome (a restored
+      // button would be a listener-less dead control anyway).
+      .replace(/<button\b[^>]*data-row-remove[^>]*>[\s\S]*?<\/button>/gi, "")
       .replace(/<\/?font\b[^>]*>/gi, "")
       .replace(/ style="([^"]*)"/gi, (m, css) => {
         const kept = css
@@ -1186,6 +1193,13 @@ class Component extends DCLogic {
     // System type row names the system. Fill restored ones the same way the
     // generator now does; a hand-completed title no longer ends in TBC and is
     // left alone. (Generated titles are plain text — no fill spans to lose.)
+    // The Construction section header reads Deflection head now.
+    root.querySelectorAll("div").forEach((d) => {
+      if (d.children.length === 0 && d.textContent.trim() === "Construction") d.textContent = "Deflection head";
+    });
+    // The working-sheet banner on generated pages is retired (13 Aug 2026).
+    const oldTag = root.querySelector("[data-clause-tag]");
+    if (oldTag && /generated from schedule/i.test(oldTag.textContent)) oldTag.textContent = "";
     const tag = root.querySelector("[data-clause-tag]");
     const title = tag && tag.parentNode ? tag.parentNode.firstElementChild : null;
     if (title && /—\s*TBC\s*$/.test(title.textContent)) {
@@ -1245,7 +1259,62 @@ class Component extends DCLogic {
         if (this._cellText(c[1]) !== "N/A") c[1].textContent = "N/A";
         return;
       }
+      // Fixed performance figures, same rule: every system is specified to
+      // L/240 limiting deflection at 200Pa, so the cells never vary.
+      if (label === "Limiting deflection") {
+        if (this._cellText(c[1]) !== "L/240") c[1].textContent = "L/240";
+        return;
+      }
+      if (label === "Maximum air pressure") {
+        if (this._cellText(c[1]) !== "200Pa") c[1].textContent = "200Pa";
+        return;
+      }
       if (label === "Primer / sealer") { tr.remove(); return; }
+      // Construction became Deflection head (13 Aug 2026): the old
+      // "Deflection head" tolerance row goes, and a fixed insulation row
+      // takes its place after Head condition.
+      if (label === "Deflection head") { tr.remove(); return; }
+      // Stud bracing exists only on Twin Frame Braced clauses (the generator
+      // inserts it there); an empty/N-A copy anywhere else is leftover from
+      // the brief every-clause version and goes.
+      if (label === "Stud bracing") {
+        const t = this._cellText(c[1]);
+        if (!t || t === "N/A" || t === "TBC" || this._isPlaceholder(t)) { tr.remove(); return; }
+        if (t.indexOf("cross braced") === 0) c[1].textContent = "C" + t.slice(1);
+        return;
+      }
+      // Deflection allowance precedes the fillets on every clause
+      // (13 Aug 2026) — added to restored pages that predate the row.
+      if (label === "Deflection head fillets") {
+        const rows = Array.from(tr.parentNode.children);
+        const hasAllowance = rows.some((r) => r.cells && r.cells.length >= 2 && this._cellText(r.cells[0]) === "Deflection allowance");
+        if (!hasAllowance) {
+          const al = tr.cloneNode(true);
+          al.cells[0].textContent = "Deflection allowance";
+          al.cells[1].textContent = "25mm (to be confirmed by Structural Engineer)";
+          tr.parentNode.insertBefore(al, tr);
+        }
+        return;
+      }
+      if (label === "Deflection head angles") {
+        // The insulation row closes the section, below the angles — drop any
+        // copy elsewhere (earlier builds put it after Head condition) and
+        // reinsert in place, KEEPING its value: 60-minute walls carry N/A
+        // here by office rule, so the wording is a default, not a constant.
+        const body = tr.parentNode;
+        let val = "";
+        Array.from(body.children).forEach((r) => {
+          if (r.cells && r.cells.length >= 2 && this._cellText(r.cells[0]) === "Deflection head insulation") {
+            val = val || this._cellText(r.cells[1]);
+            r.remove();
+          }
+        });
+        const ins = tr.cloneNode(true);
+        ins.cells[0].textContent = "Deflection head insulation";
+        ins.cells[1].textContent = val || "Stone Mineral Wool (min 33kg/m³) to be installed within head void.";
+        body.insertBefore(ins, tr.nextSibling);
+        return;
+      }
       if (label === "Beads" || label === "Bulk fill") {
         c[0].textContent = "Bulk fill";
         if (blank(this._cellText(c[1]))) c[1].textContent = "Gyproc joint compound to underside of Boards";
@@ -1272,12 +1341,42 @@ class Component extends DCLogic {
         }
         return;
       }
+      // Horizontal joints is a fixed office product now, like N/A above.
+      if (label === "Horizontal joints") {
+        if (this._cellText(c[1]) !== "British Gypsum Gypframe GFS1 Fixing Strap") c[1].textContent = "British Gypsum Gypframe GFS1 Fixing Strap";
+        return;
+      }
+      // The single Plasterboard lining row split into Side 1 / Side 2
+      // (13 Aug 2026). A restored one-row page becomes Side 1 and gets a
+      // matching Side 2 beneath — a written value is carried onto both sides
+      // for the user to adjust; a prompt stays a prompt.
       if (label !== "Plasterboard lining") return;
       const t = this._cellText(c[1]);
       if (/\[Board range\]/.test(t) || /^\[0 x 00mm/.test(t)) {
-        c[1].innerHTML = '<span class="fill">[0 x 00mm board type, each side / room side]</span>';
+        c[1].innerHTML = '<span class="fill">[0 x 00mm board type]</span>';
+      }
+      c[0].textContent = "Plasterboard lining - Side 1";
+      const rows = Array.from(tr.parentNode.children);
+      const hasSide2 = rows.some((r) => r.cells && r.cells.length >= 2 && this._cellText(r.cells[0]) === "Plasterboard lining - Side 2");
+      if (!hasSide2) {
+        const side2 = tr.cloneNode(true);
+        side2.cells[0].textContent = "Plasterboard lining - Side 2";
+        tr.parentNode.insertBefore(side2, tr.nextSibling);
       }
     });
+  }
+
+  // Schedule descriptions end at the build-up facts. Weight figures and the
+  // SpecSure/CCPI warranty blurb were carried in from the catalogue on older
+  // rows; strip them wherever saved schedule markup re-enters the document
+  // (13 Aug 2026 — _insertRow no longer writes them for new rows).
+  _scrubSchedule(html) {
+    // Case-SENSITIVE with a required digit: a /i flag here once matched the
+    // tail of "font-weight: 600" inside a style attribute and ate the cell's
+    // closing quote, text and all — every row lost its first column.
+    return this._scrubHtml(html)
+      .replace(/\.?\s*Weight:\s*\d[^<]*/g, "")
+      .replace(/\.?\s*(?:SpecSure|CCP[Ii])[^<]*/g, "");
   }
 
   _collectContent() {
@@ -1360,13 +1459,13 @@ class Component extends DCLogic {
       const body = document.querySelector('table[data-schedule="' + kind + '"] tbody');
       if (!body) return;
       const html = (content.sched || {})[kind];
-      if (typeof html === "string" && html.trim()) { body.innerHTML = this._scrubHtml(html); return; }
+      if (typeof html === "string" && html.trim()) { body.innerHTML = this._scrubSchedule(html); return; }
       const list = (content.rows || {})[kind] || [];
       const blank = body.querySelector("tr[data-blank-row]");
       if (!blank || !list.length) return;
       list.forEach((rowHtml) => {
         const tpl = document.createElement("tbody");
-        tpl.innerHTML = this._scrubHtml(rowHtml);
+        tpl.innerHTML = this._scrubSchedule(rowHtml);
         const tr = tpl.firstElementChild;
         if (tr) blank.parentNode.insertBefore(tr, blank);
       });
@@ -1466,6 +1565,36 @@ class Component extends DCLogic {
       el.setAttribute("contenteditable", "false");
     });
     this._markFilled();
+    this._decorateScheduleRows();
+  }
+
+  // Every completed schedule row carries its own screen-only remove control —
+  // deleting a system from the library (or changing your mind about a row)
+  // must not leave the table uneditable. Runs through _makeEditable so
+  // restored, inserted and generated rows all pick one up; idempotent.
+  _decorateScheduleRows() {
+    document.querySelectorAll("table[data-schedule] tbody tr").forEach((tr) => {
+      if (tr.hasAttribute("data-blank-row")) return;
+      const c = tr.cells;
+      if (!c || c.length < 2) return; // notes row
+      const last = c[c.length - 1];
+      if (last.querySelector("[data-row-remove]")) return;
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "rail";
+      btn.setAttribute("data-row-remove", "");
+      btn.setAttribute("contenteditable", "false");
+      btn.textContent = "✕";
+      btn.title = "Remove this row from the schedule";
+      btn.setAttribute("style", "float:right;appearance:none;border:1px solid #bbb;background:#fff;color:#555;font:600 7pt/1 Archivo,Helvetica,Arial,sans-serif;padding:2px 5px;margin-left:6px;cursor:pointer");
+      btn.addEventListener("click", () => {
+        this._removed = this._removed || [];
+        this._removed.push({ node: tr, parent: tr.parentNode, next: tr.nextSibling });
+        tr.remove();
+        this._scheduleNote("Row removed — Undo remove restores it. Press Generate full clauses to rebuild the clause pages to match.");
+      });
+      last.appendChild(btn);
+    });
   }
 
   // Placeholder or content? A fill holding "[Board range]", "TBC" or nothing
@@ -1861,8 +1990,24 @@ class Component extends DCLogic {
   }
 
   _cellText(td) {
-    return (td.innerText || td.textContent || "").replace(/\u200B/g, "")
-      .replace(/\s*\n\s*/g, ". ").replace(/\s+/g, " ").trim();
+    // innerText only yields line breaks while the element is rendered; the
+    // timed collation often runs from another tab where the clause is
+    // display:none and innerText degrades to run-together textContent
+    // ("600ccTBCTBC"). Read the node structure instead \u2014 <br> is the line
+    // separator whatever the visibility.
+    const parts = [];
+    let cur = "";
+    const walk = (n) => {
+      n.childNodes.forEach((ch) => {
+        if (ch.nodeName === "BR") { parts.push(cur); cur = ""; }
+        else if (ch.nodeType === 3) cur += ch.nodeValue;
+        else walk(ch);
+      });
+    };
+    walk(td);
+    parts.push(cur);
+    return parts.map((t) => t.replace(/\u200B/g, "").replace(/\s+/g, " ").trim())
+      .filter(Boolean).join(". ");
   }
 
   // The seed character an opened field carries is invisible and must never
@@ -2023,9 +2168,10 @@ class Component extends DCLogic {
       // empty as a TBC.
       if (current && !this._isPlaceholder(current)) return;
       const label = this._cellText(c[0]);
-      // Library entries collated before the rename hold the old key.
+      // Library entries collated before the renames hold the old keys.
       const stored = entry.clause[label] ||
-        (label === "Metal Manufacturer" ? entry.clause["Manufacturer"] : "");
+        (label === "Metal Manufacturer" ? entry.clause["Manufacturer"] : "") ||
+        (label.indexOf("Plasterboard lining - Side") === 0 ? entry.clause["Plasterboard lining"] : "");
       if (stored) c[1].textContent = stored;
     });
   }
@@ -2239,6 +2385,20 @@ class Component extends DCLogic {
       if (!q) return true;
       return [r.ref, r.family, r.systemType, r.fire, r.acoustic, r.duty, r.width, r.boards, r.insulation, r.framing]
         .join(" ").toLowerCase().indexOf(q) !== -1;
+    // Numeric reference order (A206002 before A206123 before A316008),
+    // whatever family the rows came from. Deliberately NOT localeCompare:
+    // locale collation half-ignores the "(A)"/"MR1" punctuation, which made
+    // the order inconsistent with itself — and since every click re-renders
+    // the list, rows shuffled underneath the cursor mid-click.
+    }).sort((a, b) => {
+      const ra = String(a.ref || ""), rb = String(b.ref || "");
+      const ma = ra.match(/^([A-Za-z]+)(\d+)/), mb = rb.match(/^([A-Za-z]+)(\d+)/);
+      if (ma && mb) {
+        if (ma[1] !== mb[1]) return ma[1] < mb[1] ? -1 : 1;
+        const na = parseInt(ma[2], 10), nb = parseInt(mb[2], 10);
+        if (na !== nb) return na - nb;
+      }
+      return ra < rb ? -1 : ra > rb ? 1 : 0;
     });
   }
 
@@ -2259,9 +2419,10 @@ class Component extends DCLogic {
     row.removeAttribute("data-blank-row");
     row.setAttribute("data-inserted-row", "");
     const heights = [entry.height, entry.h600, entry.h400, entry.h300].filter(Boolean);
+    // Build-up, insulation and width only — weight and the warranty blurb
+    // are catalogue noise on a working schedule (13 Aug 2026).
     const description = [entry.buildup, entry.insulation && !String(entry.buildup || "").includes(entry.insulation) ? entry.insulation : "",
-      entry.width ? entry.width.indexOf("Plenum") === 0 ? entry.width : "Overall width: " + entry.width : "",
-      entry.weight ? "Weight: " + entry.weight : "", entry.certification || ""].filter(Boolean).join(". ");
+      entry.width ? entry.width.indexOf("Plenum") === 0 ? entry.width : "Overall width: " + entry.width : ""].filter(Boolean).join(". ");
     const values = kind === "steel" ? [
       projectRef || entry.ref || "TBC",
       entry.sysRef || "TBC",
@@ -2329,6 +2490,9 @@ class Component extends DCLogic {
     const tag = clone.querySelector("[data-clause-tag]");
     if (!tag) return;
     clone.querySelectorAll("[data-clause-remove],[data-clause-save],[data-clause-undo],[data-clause-save-status]").forEach((b) => b.remove());
+    // The header must never force the page wider than the sheet — statuses
+    // and metadata wrap instead.
+    tag.parentNode.style.flexWrap = "wrap";
     const note = document.createElement("span");
     note.className = "rail";
     note.setAttribute("data-clause-save-status", "");
@@ -2336,7 +2500,7 @@ class Component extends DCLogic {
     // (invariant 4) or every status echo schedules the next save forever.
     note.setAttribute("data-status-text", "");
     note.setAttribute("contenteditable", "false");
-    note.setAttribute("style", "margin-left:12px;font:400 7.5pt/1.4 Archivo,Helvetica,Arial,sans-serif;color:#8a8a8a;white-space:nowrap");
+    note.setAttribute("style", "margin-left:12px;font:400 7.5pt/1.4 Archivo,Helvetica,Arial,sans-serif;color:#8a8a8a;max-width:30ch");
     const save = document.createElement("button");
     save.type = "button";
     save.className = "rail";
@@ -2390,6 +2554,25 @@ class Component extends DCLogic {
       : "Nothing to save yet — fill in some detail first.");
   }
 
+  // One press banks every completed clause below — the same idempotent sweep
+  // the timer runs, but with its outcome reported where the button lives.
+  _saveAllClauses() {
+    this._captureSchedules(true);
+    const keys = [];
+    document.querySelectorAll("[data-clause-block]").forEach((b) => {
+      if (b.hasAttribute("data-clause-proforma")) return;
+      const read = this._clauseFields(b);
+      const key = read.sysRef || read.ref;
+      if (key && key.charAt(0) !== "[") keys.push(key);
+    });
+    const lib = this.state.library || [];
+    const saved = keys.filter((k) => lib.some((e) => (e.sysRef || e.ref) === k));
+    this._clauseNote(saved.length
+      ? saved.length + " clause" + (saved.length === 1 ? "" : "s") + " saved to the library (" + saved.join(", ") + ") · " +
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      : "Nothing to save yet — clauses need a system reference and some detail first.");
+  }
+
   _undoRemoveClause() {
     const stack = this._removed || [];
     if (!stack.length) {
@@ -2438,12 +2621,155 @@ class Component extends DCLogic {
       setRow("Sound insulation (dB Rw)", row.acoustic || "TBC");
       setRow("Maximum height (mm)", row.height || "TBC");
     }
-    // Anything the schedule cannot supply stays as a labelled TBC.
+    // Collated clause detail first — wording the office wrote for this system
+    // beats anything derived. Then the catalogue fills what's still open.
+    this._applyStoredClause(clone, row);
+    this._autoFillFromCatalogue(clone, row);
+    // Anything neither could supply stays as a labelled TBC.
     clone.querySelectorAll(".fill").forEach((el) => {
       el.textContent = "TBC";
     });
-    // …unless this system's clause detail has been collated before.
-    this._applyStoredClause(clone, row);
+  }
+
+  // The office house style for a filled clause (set 13 Aug 2026, modelled on
+  // GA-40HV's DW.01A/B): every field the White Book data can answer is
+  // pre-filled. Writes only into cells still holding a prompt or TBC — the
+  // schedule row's own values and stored library detail always win.
+  _autoFillFromCatalogue(clone, row) {
+    const setIf = (label, value) => {
+      if (!value) return;
+      clone.querySelectorAll("tr").forEach((tr) => {
+        const c = tr.cells;
+        if (!c || c.length < 2) return;
+        if (this._cellText(c[0]).toLowerCase() !== label.toLowerCase()) return;
+        const cur = this._cellText(c[1]);
+        if (cur && cur !== "TBC" && !this._isPlaceholder(cur)) return;
+        c[1].textContent = value;
+      });
+    };
+    // House constants regardless of system.
+    setIf("Thermal", "N/A");
+    setIf("Secured by Design", "N/A");
+    setIf("Approved Document Q", "N/A");
+    const fm = String(row.fire || "").match(/^\s*(\d+):/);
+    if (fm) setIf("Head condition", fm[1] + " minutes");
+    // Deflection head build-up follows the fire rating (office rule):
+    // 90/120-minute walls take FireCase fillets and angles with head-void
+    // insulation; 30/60-minute walls keep the fillets but take GA4 angles
+    // and no insulation.
+    const fireMin = fm ? parseInt(fm[1], 10) : null;
+    const DH_FILLETS = "2 x 15mm British Gypsum Glasroc F FireCase Boards";
+    if (fireMin === 120 || fireMin === 90) {
+      setIf("Deflection head fillets", DH_FILLETS);
+      setIf("Deflection head angles", DH_FILLETS + " e/s");
+    } else if (fireMin === 60 || fireMin === 30) {
+      setIf("Deflection head fillets", DH_FILLETS);
+      setIf("Deflection head angles", "British Gypsum Gypframe GA4 Angles e/s");
+      // Override the standing Stone Mineral Wool default — but only while
+      // untouched, so a hand-written value stays.
+      clone.querySelectorAll("tr").forEach((tr) => {
+        const c = tr.cells;
+        if (!c || c.length < 2) return;
+        if (this._cellText(c[0]) !== "Deflection head insulation") return;
+        const cur = this._cellText(c[1]);
+        if (!cur || cur === "TBC" || this._isPlaceholder(cur) || cur.indexOf("Stone Mineral Wool") === 0) c[1].textContent = "N/A";
+      });
+    }
+    // Spacing-and-case tolerant match: a hand-typed "A216010 (A)(EN)" must
+    // still find the catalogue's "A216010 (A) (EN)".
+    const norm = (s) => String(s || "").replace(/\s+/g, "").toUpperCase();
+    const want = norm(row.sysRef);
+    const cat = want ? (this.state.catalog || []).find((r) => norm(r.sysRef) === want || norm(r.ref) === want) : null;
+    if (!cat) return;
+    setIf("Metal Manufacturer", cat.manufacturer || "");
+    if (cat.width) setIf("Overall width (mm)", cat.width);
+    setIf("Cavity insulation type", cat.insulation || "N/A");
+    // "Gypframe 70 S 50 'C' Stud at 600mm centres" → configuration + centres.
+    // Twin-frame systems run two rows of studs, so the configuration reads
+    // "2 x …"; Braced systems additionally carry the cross-bracing channel,
+    // everything else records bracing as N/A (office rule, 13 Aug 2026).
+    const twin = /Twin Frame/i.test(String(cat.family || ""));
+    const studPrefix = twin ? "2 x " : "";
+    const f = String(cat.framing || "").match(/^(.*?)\s+at\s+(\d+)mm\s+centres/i);
+    if (f) {
+      setIf("Stud configuration", studPrefix + "British Gypsum " + f[1] + (/s$/i.test(f[1]) ? "" : "s"));
+      setIf("Stud centres", f[2] + "mm");
+    } else if (cat.framing) {
+      setIf("Stud configuration", studPrefix + "British Gypsum " + cat.framing);
+    }
+    // The Stud bracing row exists only on Twin Frame Braced clauses — it is
+    // inserted here (under Stud configuration) rather than carried in the
+    // pro-forma, so no other system shows the row at all.
+    if (/Braced/i.test(String(cat.family || ""))) {
+      const BR = "Cross braced using Gypframe 99 FC 50 Fixing Channel at 1200mm centres";
+      let cfg = null, existing = null;
+      clone.querySelectorAll("tr").forEach((tr) => {
+        const c = tr.cells;
+        if (!c || c.length < 2) return;
+        const l = this._cellText(c[0]);
+        if (l === "Stud configuration") cfg = tr;
+        else if (l === "Stud bracing") existing = tr;
+      });
+      if (!existing && cfg) {
+        const br = cfg.cloneNode(true);
+        br.cells[0].textContent = "Stud bracing";
+        br.cells[1].textContent = BR;
+        cfg.parentNode.insertBefore(br, cfg.nextSibling);
+      } else if (existing) {
+        setIf("Stud bracing", BR);
+      }
+    }
+    // Tracks follow the channel size and the wall's max height (office rule):
+    // a wall reaching 4.2m takes a DC head with the base split under/over;
+    // anything below runs FEC throughout.
+    const tm = String(cat.track || "").match(/Gypframe\s+(\d+)/i);
+    if (tm) {
+      const fec = "British Gypsum Gypframe " + tm[1] + "'FEC'50 Track";
+      const dc = "British Gypsum Gypframe " + tm[1] + "'DC'60 Track";
+      const hMax = this._maxHeight(cat);
+      if (hMax !== null && hMax >= 4200) {
+        setIf("Head track", dc);
+        setIf("Base track", fec + " (under 4.2m) / " + dc + " (over 4.2m)");
+      } else {
+        setIf("Head track", fec);
+        setIf("Base track", fec);
+      }
+    }
+    // Boards: "Gyproc FireLine 12.5mm + Gyproc FireLine 12.5mm each side" →
+    // "2 x 12.5mm British Gypsum Gyproc FireLine Boards" per side. Uniform
+    // layups compress to the count; mixed layups keep the source wording.
+    const side = (txt) => {
+      const layers = txt.split("+").map((s) => s.trim()).filter(Boolean);
+      const parsed = layers.map((l) => l.match(/^(.*?)\s*(\d+(?:\.\d+)?)mm$/));
+      if (layers.length && parsed.every(Boolean)) {
+        const names = Array.from(new Set(parsed.map((p) => p[1].trim())));
+        const ths = Array.from(new Set(parsed.map((p) => p[2])));
+        if (names.length === 1 && ths.length === 1) {
+          return { text: layers.length + " x " + ths[0] + "mm British Gypsum " + names[0] + " Boards", count: layers.length, th: ths[0] };
+        }
+      }
+      return { text: txt, count: null, th: null };
+    };
+    const boards = String(cat.boards || "");
+    if (boards && !/^\s*\d+(\.\d+)?mm\s*$/.test(boards)) {
+      let s1, s2;
+      if (boards.indexOf(" one side / ") !== -1) {
+        const p = boards.split(" one side / ");
+        s1 = side(p[0]);
+        s2 = side(String(p[1] || "").replace(/\s*other side\s*$/, ""));
+      } else {
+        s1 = s2 = side(boards.replace(/\s*each side\s*$/, ""));
+      }
+      setIf("Plasterboard lining - Side 1", s1.text);
+      setIf("Plasterboard lining - Side 2", s2.text);
+      // Screw lengths follow the layup (office rule); combinations outside
+      // the table stay TBC.
+      const FIX = { "1|12.5": "25mm", "1|15": "25mm", "2|12.5": "25mm & 35mm", "2|15": "25mm & 38mm" };
+      if (s1.count && s2.count === s1.count && s2.th === s1.th) {
+        const fx = FIX[s1.count + "|" + s1.th];
+        if (fx) setIf("Fixings", fx + " British Gypsum Drywall Fixings @300mm centres");
+      }
+    }
   }
 
   _generateClauses() {
@@ -2516,7 +2842,7 @@ class Component extends DCLogic {
         title.textContent = row.ref + " — " + (row.systemType || row.member || "TBC");
         this._appendTitleMeta(title, row.acoustic, row.fire, row.height);
       }
-      if (tag) tag.textContent = "Generated from schedule — complete TBC items";
+      if (tag) tag.textContent = "";
       this._addRemoveControl(clone);
       this._fillClause(clone, row);
       frag.appendChild(clone);
@@ -2615,6 +2941,7 @@ class Component extends DCLogic {
       addClause: () => this._addClause(),
       generateClauses: () => this._generateClauses(),
       undoRemoveClause: () => this._undoRemoveClause(),
+      saveAllClauses: () => this._saveAllClauses(),
       applySetup: () => this._applySetup(),
       saveCode: () => this._saveCode(),
       printDoc: () => this._printDoc(),
