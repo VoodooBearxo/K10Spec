@@ -248,6 +248,10 @@
      "still to be written". One face throughout, filled or not. */
   .fill{color:#5a5a5a}
   .fill[data-filled]{color:inherit}
+  /* Custom-form dropdowns: authored grey is the placeholder state; a real
+     selection reads black like a filled text input. Overrides the inline
+     style, hence the !important. */
+  select[data-code]:has(option:checked:not([value=""])){color:#000 !important}
   /* The browser's default subscript drop reads as a typo at 9pt — the w
      in Rw sits nearly a half-line down. Keep the small face, raise it. */
   sub{font-size:0.7em;vertical-align:-0.15em;line-height:0}
@@ -273,7 +277,7 @@
 <div slot="header" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1.5px solid #000;padding-bottom:4px;font-family:Archivo,Helvetica,Arial,sans-serif;font-size:8pt;letter-spacing:0.04em;text-transform:uppercase;color:#000">
   <div style="display:flex;flex-direction:column;gap:2px">
     <span style="font-weight:700">{{ docRef }} — {{ projectName }}</span>
-    <span style="color:#555;letter-spacing:0.06em">Main contractor: {{ mainContractor }} &nbsp;·&nbsp; Sub-contractor: {{ subContractor }}</span>
+    <span style="color:#555;letter-spacing:0.06em">Main contractor: {{ mainContractor }}</span>
   </div>
   <div style="display:flex;gap:22px;color:#555;letter-spacing:0.06em;white-space:nowrap">
     <span>{{ companyName }}</span>
@@ -283,8 +287,7 @@
 </div>
 
 <div slot="footer" style="display:flex;justify-content:space-between;gap:24px;border-top:0.75px solid #000;padding-top:4px;font-family:Archivo,Helvetica,Arial,sans-serif;font-size:7.5pt;letter-spacing:0.05em;text-transform:uppercase;color:#555">
-  <span>{{ specBrand }} Specification — K10 Plasterboard Dry Lining / Partitions</span>
-  <span>All specifications shown are covered by the {{ specBrand }} performance warranty</span>
+  <span>{{ specBrand }} — Specification based on available test data from manufacturers</span>
 </div>
 
 <section class="rail" data-tabpane="setup" style="font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;padding-bottom:26px;margin-bottom:30px">
@@ -479,17 +482,37 @@
 
       <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555;margin-top:16px">Add a custom system — not in the library</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:6px">
-        <input data-code="ref" type="text" placeholder="Wall type ref [XX-000]" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <input data-code="ref" type="text" placeholder="Wall type ref [XX-000] — this project only, not stored in library" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="sysRef" type="text" placeholder="Manufacturer code" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="systemType" type="text" placeholder="System type (shaftwall)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="acoustic" type="text" placeholder="Acoustic (54 dB Rw)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
-        <input data-code="fire" type="text" placeholder="Fire (60:60 BS EN 1364-1)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
-        <input data-code="duty" type="text" placeholder="Duty (Severe)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <sc-raw-select data-code="fire" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff;color:#8a8a8a">
+          <option value="">Fire — select</option>
+          <option value="30:30 minutes tested to BS EN 1364-1">30:30 (to BS EN 1364-1)</option>
+          <option value="60:60 minutes tested to BS EN 1364-1">60:60 (to BS EN 1364-1)</option>
+          <option value="90:90 minutes tested to BS EN 1364-1">90:90 (to BS EN 1364-1)</option>
+          <option value="120:120 minutes tested to BS EN 1364-1">120:120 (to BS EN 1364-1)</option>
+        </sc-raw-select>
+        <sc-raw-select data-code="duty" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff;color:#8a8a8a">
+          <option value="">Duty — select</option>
+          <option value="Medium, to BS 5234-2">Medium</option>
+          <option value="Severe, to BS 5234-2">Severe</option>
+        </sc-raw-select>
         <input data-code="h600" type="text" placeholder="Height @ 600cc" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="h400" type="text" placeholder="Height @ 400cc" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="h300" type="text" placeholder="Height @ 300cc" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <input data-code="width" type="text" placeholder="Overall width (146mm)" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
-        <input data-code="insulation" type="text" placeholder="Insulation" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <sc-raw-select data-code="insulation" id="code-insulation" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff;color:#8a8a8a">
+            <option value="">Insulation — select</option>
+            <option value="25mm Isover Acoustic Partition Roll (APR 1200)">25mm APR</option>
+            <option value="50mm Isover Acoustic Partition Roll (APR 1200)">50mm APR</option>
+            <option value="75mm Isover Acoustic Partition Roll (APR 1200)">75mm APR</option>
+            <option value="100mm Isover Acoustic Partition Roll (APR 1200)">100mm APR</option>
+            <option value="__custom">Custom — type below</option>
+          </sc-raw-select>
+          <input data-code="insulationCustom" id="code-insulation-custom" type="text" placeholder="Custom insulation — product and thickness" style="display:none;border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
+        </div>
         <input data-code="link" type="text" placeholder="Manufacturer page link" style="border:1px solid #000;padding:6px 7px;font:400 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;background:#fff">
         <textarea data-code="buildup" placeholder="Board build-up description — studs, centres, board layers, each side / room side" rows="2" style="grid-column:1 / -1;border:1px solid #000;padding:6px 7px;font:400 9pt/1.35 Archivo,Helvetica,Arial,sans-serif;background:#fff;resize:vertical"></textarea>
       </div>
@@ -728,7 +751,7 @@
           <sc-raw-tbody>
             <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">System type</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[System name and family]</span></sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Metal Manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Company, address, postcode]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">{{ manufacturer }} — {{ boardRange }} range</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board manufacturer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">{{ manufacturer }}</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">System reference</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[SYSTEM-REF]</span></sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
         </sc-raw-table>
@@ -793,24 +816,24 @@
         </sc-raw-table>
 
         <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">Finishing</div>
-        <sc-raw-table style="width:100%;border-collapse:collapse;break-inside:avoid">
+        <sc-raw-table style="width:100%;border-collapse:collapse;margin-bottom:12px;break-inside:avoid">
           <sc-raw-tbody>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board finishing</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Taped and jointed / skimmed]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Primer / sealer</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Refer to general clause 000]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Sealant</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc"><span class="fill">[Sealant requirement]</span></sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Beads</sc-raw-td><sc-raw-td style="padding:3px 0;"><span class="fill">[Bead type and locations]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Board finishing</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">British Gypsum Gyproc - Tape &amp; Joint Products</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Skim finish</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">Skim Finish with Gyproc Thistle Plaster</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;border-bottom:0.75px solid #ccc">Sealant</sc-raw-td><sc-raw-td style="padding:3px 0;border-bottom:0.75px solid #ccc">British Gypsum Gyproc Sealant</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="padding:3px 7px 3px 0;">Bulk fill</sc-raw-td><sc-raw-td style="padding:3px 0;">Gyproc joint compound to underside of Boards</sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
         </sc-raw-table>
 
         <div style="background:#000;color:#fff;padding:3px 7px;font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;break-after:avoid;break-inside:avoid">General notes</div>
         <sc-raw-table style="width:100%;border-collapse:collapse;margin-top:0;break-inside:avoid">
           <sc-raw-tbody>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Fixtures</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Plywood pattresses fitted between studs to accommodate any heavy wall-mounted fixtures, dependent on load.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Fixtures</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Plywood pattresses fitted between studs to accommodate any heavy wall-mounted fixtures, If required.</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Flanking paths</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Greater care required at corners, T-junctions and abutments to reduce flanking paths. Refer to the specification detailing.</sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Sockets and switches</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Fire and acoustically stopped using putty pads or equal and approved.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Sockets and switches</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Fire and acoustically stopped using Putty Pads or Baffle Box detailing - TBC</sc-raw-td></sc-raw-tr>
             <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Tiling weights</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Must not exceed 32kg/m² on tape and jointed systems, or 20kg/m² on skimmed systems.</sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Maximum heights</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Assessed in the cold state. Notify GA Interiors Ltd. if project requirements change.</sc-raw-td></sc-raw-tr>
-            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top">Additional notes</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top"><span class="fill">[Any notes specific to this system.]</span></sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Maximum heights</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top;border-bottom:0.75px solid #ccc">Based on available fire test data from manufacturer.</sc-raw-td></sc-raw-tr>
+            <sc-raw-tr><sc-raw-td style="width:38%;padding:3px 7px 3px 0;vertical-align:top">Additional notes</sc-raw-td><sc-raw-td style="padding:3px 0;vertical-align:top">N/A</sc-raw-td></sc-raw-tr>
           </sc-raw-tbody>
         </sc-raw-table>
     </div>
@@ -958,6 +981,18 @@ class Component extends DCLogic {
     this._decorateClauses();
     this._initTabs();
     this._makeEditable();
+    // The insulation picker's Custom option reveals a free-text input.
+    // (Display toggles are style-attribute writes, which the autosave
+    // observer's quiet list already ignores.)
+    document.addEventListener("change", (e) => {
+      const t = e.target;
+      if (!t || !t.closest) return;
+      if (t.id === "code-insulation" || t.closest("#code-insulation")) {
+        const c = document.getElementById("code-insulation-custom");
+        const ins = document.getElementById("code-insulation");
+        if (c && ins) c.style.display = ins.value === "__custom" ? "" : "none";
+      }
+    }, true);
     ["keydown", "input", "change", "paste", "drop"].forEach((evt) => {
       document.addEventListener(evt, () => { this._userTouched = true; }, true);
     });
@@ -1125,12 +1160,118 @@ class Component extends DCLogic {
   // three-piece Plasterboard lining cell folds into today's single prompt
   // (only while it still holds prompts — a written cell stays), and the
   // system table's Manufacturer label reads Metal Manufacturer.
+  // Key performance figures ride the clause title so a page identifies its
+  // system at a glance. Compact forms keep the whole line on one line: fire
+  // to its minutes pair, height to the 600cc figure with "at …mm centres"
+  // shortened to "@ …cc".
+  _appendTitleMeta(title, acoustic, fire, height) {
+    const ok = (v) => v && v !== "TBC" && v.charAt(0) !== "[" && !/^n\/a$/i.test(v);
+    const fireBit = !ok(fire) ? "" : (fire.match(/^\s*(\d+:\d+)/) ? fire.match(/^\s*(\d+:\d+)/)[1] + " Fire Protection to BS EN 1364-1" : fire);
+    let heightBit = "";
+    if (ok(height)) {
+      const parts = height.split("/").map((s) => s.trim());
+      heightBit = (parts.find((p) => p.indexOf("600") !== -1) || parts[0])
+        .replace(/\s*at\s*(\d+)mm\s*centres/i, " @ $1cc");
+    }
+    const bits = [ok(acoustic) ? acoustic : "", fireBit, heightBit].filter(Boolean);
+    if (!bits.length) return;
+    const m = document.createElement("span");
+    m.textContent = bits.join("  ·  ");
+    m.setAttribute("style", "font-size:9pt;font-weight:400;color:#555;letter-spacing:0;white-space:nowrap;margin-left:12px");
+    title.appendChild(m);
+  }
+
   _patchLegacyClause(root) {
+    // Generated titles used to read "REF — TBC" even though the clause's own
+    // System type row names the system. Fill restored ones the same way the
+    // generator now does; a hand-completed title no longer ends in TBC and is
+    // left alone. (Generated titles are plain text — no fill spans to lose.)
+    const tag = root.querySelector("[data-clause-tag]");
+    const title = tag && tag.parentNode ? tag.parentNode.firstElementChild : null;
+    if (title && /—\s*TBC\s*$/.test(title.textContent)) {
+      const found = {};
+      root.querySelectorAll("tr").forEach((tr) => {
+        const c = tr.cells;
+        if (!c || c.length < 2) return;
+        const l = this._cellText(c[0]);
+        if (l === "System type" || l === "Fire resistance (minutes)" ||
+            l === "Sound insulation (dB Rw)" || l === "Maximum height (mm)") {
+          if (!found[l]) found[l] = this._cellText(c[1]);
+        }
+      });
+      const sys = found["System type"];
+      if (sys && sys !== "TBC" && sys.charAt(0) !== "[") {
+        title.textContent = title.textContent.replace(/—\s*TBC\s*$/, "— " + sys);
+        this._appendTitleMeta(title, found["Sound insulation (dB Rw)"],
+          found["Fire resistance (minutes)"], found["Maximum height (mm)"]);
+      }
+    }
     root.querySelectorAll("tr").forEach((tr) => {
       const c = tr.cells;
       if (!c || c.length < 2) return;
       const label = this._cellText(c[0]);
       if (label === "Manufacturer") { c[0].textContent = "Metal Manufacturer"; return; }
+      // Board manufacturer names the maker alone — older markup appended
+      // "— [Board range] range", which restored clauses still carry.
+      if (label === "Board manufacturer") {
+        const t = this._cellText(c[1]);
+        const m = t.match(/^(.*\S)\s+—\s+.*range$/);
+        if (m) c[1].textContent = m[1];
+        return;
+      }
+      // Finishing section, restyled 13 Aug 2026: Primer/sealer is gone, Beads
+      // became Bulk fill with a fixed office wording, and Sealant/Board
+      // finishing carry office defaults. Only unwritten cells are filled —
+      // a value someone typed stays.
+      const blank = (t) => !t || t === "TBC" || this._isPlaceholder(t);
+      // General notes wording, restyled 13 Aug 2026 — old office defaults are
+      // swapped for the new ones; hand-written text doesn't match and stays.
+      const NOTE_SWAPS = {
+        "Fixtures": ["Plywood pattresses fitted between studs to accommodate any heavy wall-mounted fixtures, dependent on load.",
+          "Plywood pattresses fitted between studs to accommodate any heavy wall-mounted fixtures, If required."],
+        "Sockets and switches": ["Fire and acoustically stopped using putty pads or equal and approved.",
+          "Fire and acoustically stopped using Putty Pads or Baffle Box detailing - TBC"],
+        "Maximum heights": ["Assessed in the cold state. Notify GA Interiors Ltd. if project requirements change.",
+          "Based on available fire test data from manufacturer."]
+      };
+      if (NOTE_SWAPS[label]) {
+        const t = this._cellText(c[1]);
+        if (blank(t) || t === NOTE_SWAPS[label][0]) c[1].textContent = NOTE_SWAPS[label][1];
+        return;
+      }
+      // Office rule 13 Aug 2026: the clause's Additional notes always reads
+      // N/A — whatever older markup or a generator dump left in it.
+      if (label === "Additional notes") {
+        if (this._cellText(c[1]) !== "N/A") c[1].textContent = "N/A";
+        return;
+      }
+      if (label === "Primer / sealer") { tr.remove(); return; }
+      if (label === "Beads" || label === "Bulk fill") {
+        c[0].textContent = "Bulk fill";
+        if (blank(this._cellText(c[1]))) c[1].textContent = "Gyproc joint compound to underside of Boards";
+        return;
+      }
+      if (label === "Sealant") {
+        if (blank(this._cellText(c[1]))) c[1].textContent = "British Gypsum Gyproc Sealant";
+        return;
+      }
+      if (label === "Board finishing") {
+        if (blank(this._cellText(c[1]))) c[1].textContent = "British Gypsum Gyproc - Tape & Joint Products";
+        // Match the other sections' 12px gap before the next header — the
+        // finishing table shipped without it.
+        const table = tr.closest("table");
+        if (table) table.style.marginBottom = "12px";
+        // The skim option is its own row, added once beneath.
+        const rows = Array.from(tr.parentNode.children);
+        const hasSkim = rows.some((r) => r.cells && r.cells.length >= 2 && this._cellText(r.cells[0]) === "Skim finish");
+        if (!hasSkim) {
+          const skim = tr.cloneNode(true);
+          skim.cells[0].textContent = "Skim finish";
+          skim.cells[1].textContent = "Skim Finish with Gyproc Thistle Plaster";
+          tr.parentNode.insertBefore(skim, tr.nextSibling);
+        }
+        return;
+      }
       if (label !== "Plasterboard lining") return;
       const t = this._cellText(c[1]);
       if (/\[Board range\]/.test(t) || /^\[0 x 00mm/.test(t)) {
@@ -1681,17 +1822,32 @@ class Component extends DCLogic {
 
   _saveCode() {
     const entry = this._readInputs("data-code");
-    if (!entry.ref && !entry.sysRef) {
-      this.setState({ libraryStatus: "Enter at least a wall type reference or manufacturer code." });
+    // The wall type ref is this project's numbering (SW-01 here is WT-12 on
+    // the next job) — it belongs on this project's schedule row, never inside
+    // the shared library entry, whose identity is the manufacturer code.
+    const projRef = entry.ref;
+    delete entry.ref;
+    // "Custom — type below" stores what was typed, not the sentinel.
+    if (entry.insulation === "__custom") entry.insulation = (entry.insulationCustom || "").trim();
+    delete entry.insulationCustom;
+    if (!entry.sysRef) {
+      this.setState({ libraryStatus: "Give the system a manufacturer code — the wall type ref is per-project and isn't stored in the library." });
       return;
     }
     const manu = this._readInputs("data-setup");
     entry.manufacturer = manu.manufacturer || manu.boardRange || "";
     entry.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
     const library = (this.state.library || []).concat([entry]);
-    this.setState({ library: library, libraryStatus: "Saved to your custom systems." });
+    // A typed wall ref means it's being used HERE — put the row straight into
+    // this project's schedule under that ref, alongside the library save.
+    let msg = "Saved to your custom systems.";
+    if (projRef) {
+      this._insertRow(entry, projRef);
+      msg = "Saved to your custom systems · " + projRef + " row inserted into this project's schedule.";
+    }
+    this.setState({ library: library, libraryStatus: msg });
     this._writeFile(this._customFile(), library).then((ok) => {
-      if (!ok) this.setState({ libraryStatus: "Saved for this session only — no disk access here." });
+      if (!ok) this.setState({ libraryStatus: msg + " Session only — no disk access here." });
     });
     document.querySelectorAll("[data-code]").forEach((el) => { el.value = ""; });
   }
@@ -1933,10 +2089,14 @@ class Component extends DCLogic {
         } else {
           cols.forEach((c) => { if (!this._worthKeeping(entry[c])) delete entry[c]; });
           if (!(entry.sysRef || entry.ref)) return;
-          entry.ref = entry.ref || key;
+          // The row's wall ref is project numbering. It lives in the projects
+          // log; only a row with no manufacturer code keeps it as identity.
+          const rowRef = entry.ref || key;
+          if (entry.sysRef) delete entry.ref;
+          else entry.ref = rowRef;
           entry.manufacturer = setup.manufacturer || setup.boardRange || "";
           entry.source = "Captured from specification";
-          entry.projects = [{ project: project, ref: entry.ref, date: stamp }];
+          entry.projects = [{ project: project, ref: rowRef, date: stamp }];
           entry.updated = stamp;
           entry.id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
           library.push(entry);
@@ -1966,7 +2126,9 @@ class Component extends DCLogic {
       if (!match) {
         match = {
           sysRef: read.sysRef,
-          ref: read.ref,
+          // Same rule as schedule rows: the clause's wall ref is project
+          // numbering, kept only when there is no manufacturer code.
+          ref: read.sysRef ? "" : read.ref,
           systemType: read.fields["System type"] || "",
           manufacturer: read.fields["Metal Manufacturer"] || read.fields["Manufacturer"] || setup.manufacturer || "",
           source: "Captured from clause",
@@ -2261,7 +2423,8 @@ class Component extends DCLogic {
     setRow("System reference", row.sysRef || "TBC");
     setRow("Fire resistance (minutes)", row.fire || "TBC");
     setRow("Duty rating (BS 5234)", row.duty || "TBC");
-    setRow("Additional notes", row.description || "TBC");
+    // Additional notes stays at its template default (N/A) — the schedule
+    // description used to be dumped here, which read as noise on the PDF.
     if (row.systemType) setRow("System type", row.systemType);
     if (row.kind === "steel") {
       // The steel schedule carries member type and section factor, not
@@ -2347,7 +2510,12 @@ class Component extends DCLogic {
       this._newSlotIds(clone);
       const tag = clone.querySelector("[data-clause-tag]");
       const title = tag && tag.parentNode.firstElementChild;
-      if (title) title.textContent = row.ref + " — TBC";
+      // The schedule row already names the system — only a row that genuinely
+      // doesn't say leaves the title as TBC to complete by hand.
+      if (title) {
+        title.textContent = row.ref + " — " + (row.systemType || row.member || "TBC");
+        this._appendTitleMeta(title, row.acoustic, row.fire, row.height);
+      }
       if (tag) tag.textContent = "Generated from schedule — complete TBC items";
       this._addRemoveControl(clone);
       this._fillClause(clone, row);
@@ -2413,7 +2581,9 @@ class Component extends DCLogic {
         (e.projects && e.projects.length) ? "Used on: " + e.projects.map((p) => p.project).join("; ") : "",
         e.updated ? "Last updated " + e.updated : ""]
         .filter(Boolean).join(" · ") || "No performance data recorded",
-      insert: () => this._insertRow(e),
+      // Wall ref comes from the picker's Project reference field, typed fresh
+      // per project — library entries deliberately don't carry one.
+      insert: () => this._insertRow(e, this._pickVals().projectRef),
       remove: () => this._removeCode(e.id)
     }));
     return {
