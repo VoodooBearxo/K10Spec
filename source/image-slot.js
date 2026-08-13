@@ -91,6 +91,13 @@
 /* END USAGE */
 
 (() => {
+  // The built page executes this script twice (outer head + inner document).
+  // The element-define guard below already keeps the FIRST run's class — and
+  // its closed-over slot store — servicing every mounted slot, so a second
+  // run must not reassign window.ImageSlots to a fresh empty store (drops
+  // then persist through run 1 while collate reads run 2's empty store and
+  // never sees an image) or stack duplicate document-level paste handlers.
+  if (customElements.get('image-slot')) return;
   // Per-document sidecar: each project copy of a page keeps its own images
   // instead of sharing one folder-wide state file.
   const STATE_FILE = (() => {
@@ -271,7 +278,21 @@
   window.ImageSlots = {
     get: function (id) { return getSlot(id); },
     set: function (id, val) { setSlot(id, val); },
-    ready: function () { return load(); }
+    ready: function () { return load(); },
+    // Replace the whole store with another document's sidecar. The initial
+    // load() is fetched once and cached for the life of the page, but a host
+    // that switches between cloud documents changes which sidecar is the
+    // truth mid-session — without this, the store keeps the previous
+    // document's images AND the next save writes them wholesale over the new
+    // document's file (saves serialize the entire store). Deliberately does
+    // not save: the map passed in IS the persisted state being adopted.
+    replaceAll: function (map) {
+      slots = map && typeof map === 'object' ? map : {};
+      tombstones.clear();
+      loaded = true;
+      loadP = Promise.resolve();
+      subs.forEach(function (fn) { fn(); });
+    }
   };
 
   // ── Image downscale ─────────────────────────────────────────────────────

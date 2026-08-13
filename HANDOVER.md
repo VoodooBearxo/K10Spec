@@ -3,7 +3,7 @@
 ## What this is
 A single-file HTML app for producing NBS **Section K10** specifications (drylining,
 ceilings, steel encasement) for GA Technical. One document, three tabs: **Project setup**
-(working sheet, never printed — project info, a 460-system British Gypsum picker, and a
+(working sheet, never printed — project info, a 1,065-system British Gypsum picker, and a
 Cloud bar), **Front page** (issue sheet, printed), **K10 specification** (schedules +
 clause pages, printed).
 
@@ -15,7 +15,7 @@ system arrives complete — text *and* build-up drawing. Plug and play.
 - **Repo:** `VoodooBearxo/K10Spec`, branch `main`, cloned at `~/Documents/Projects/K10Spec`
 - **Backend:** Supabase project `bbshqvlrfcivhddkwgib` ("Sitebear.io" — it also hosts an
   unrelated app; **do not touch tables outside `k10_*`**)
-- Currently live: **v10 · 12 Aug 12:20**, 592,109 bytes
+- Currently live: **v24 · 12 Aug 14:45**, 606,586 bytes
 
 ## Build and publish — read before changing anything
 **The repo's `index.html` is a build artefact, not source.** The original bundler is part
@@ -33,7 +33,7 @@ python3 build.py index.html source index.html "v11 · 12 Aug 14:00"
 
 It reuses the existing bundle as the shell — regenerating only the `__bundler/manifest`
 and `__bundler/template` payloads and leaving the loader byte-identical. Verified
-reproducible: rebuilding v10 from `source/` gives a byte-identical file.
+reproducible: rebuilding the shipped build from `source/` gives a byte-identical file.
 
 **Three rules the build must keep:**
 1. **Escape `</` in the payloads.** They sit inside `<script>` elements, so the HTML parser
@@ -50,7 +50,7 @@ reproducible: rebuilding v10 from `source/` gives a byte-identical file.
 **Publishing** — a deploy key with write access is configured (`~/.ssh/k10spec_deploy`,
 host alias `github-k10spec`), so `git push origin main` works from this machine. Pages
 takes 1–3 minutes. Confirm with the byte count, not the stamp (the stamp is stored
-JSON-escaped as `v10 · …`, so a naive grep will miss it):
+JSON-escaped as `v24 · …`, so a naive grep will miss it):
 
 ```bash
 curl -s https://voodoobearxo.github.io/K10Spec/ | wc -c
@@ -63,7 +63,7 @@ unauthenticated: `api.github.com/repos/VoodooBearxo/K10Spec/deployments`.
 ## Data model (Supabase `public`)
 | Table | Purpose | Now |
 |---|---|---|
-| `k10_systems` | 460 British Gypsum systems, read-only to the app | 460 rows |
+| `k10_systems` | 1,065 British Gypsum systems, read-only to the app | 1,065 rows |
 | `k10_specs` | One row per K10: `setup`/`schedules`/`clauses`/`images` jsonb | 2 rows |
 | `k10_library` | The office's collated systems, unique on `system_code`, clause detail in `detail` jsonb | 2 rows |
 | `k10_config` | Passcode hash. Service role only | 1 row |

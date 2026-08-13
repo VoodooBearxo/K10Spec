@@ -224,6 +224,24 @@
   doc-page:not(:defined){visibility:hidden}
   body{margin:0}
   @media print{.rail{display:none !important}}
+  /* Print composition: each schedule table opens its own page; the clause
+     pages drop their working-sheet chrome (the "generated from schedule" tag
+     and the heavy top rule + spacing, which on a fresh page only push the
+     content down); the Full clauses divider sits as a title page. Attribute
+     selectors on purpose — restored markup from older records carries no
+     new classes, but it does carry these attributes. */
+  @media print{
+    [data-schedule-break]{break-before:page;margin-top:0 !important}
+    [data-clause-tag]{display:none !important}
+    [data-clause-block]{margin-top:0 !important;padding-top:0 !important;border-top:0 !important}
+    [data-clauses-section]{margin-top:0 !important;padding-top:0 !important;border-top:0 !important}
+    [data-clauses-title]{padding-top:58mm}
+  }
+  /* The harness pins its wrappers to viewport height while the page scrolls
+     on the document — position:sticky on the toolbar can only travel within
+     its parent, so the bar fell off one screen down. Screen only: print
+     layout keeps the harness sizing. */
+  @media screen{#dc-root,#dc-root>.sc-host{height:auto !important}}
   a{color:#000;text-decoration:underline}
   a:hover{color:#555}
   /* Placeholders keep the document's own face and size — only the grey says
@@ -238,7 +256,7 @@
 <script src="doc-page.js"></script>
 <script src="image-slot.js"></script>
 </helmet>
-<div class="rail" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;background:#fff;border-bottom:1px solid #ddd;font-family:Archivo,Helvetica,Arial,sans-serif">
+<div class="rail" style="position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:12px 16px;background:#fff;border-bottom:1px solid #ddd;font-family:Archivo,Helvetica,Arial,sans-serif">
   <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.14em;color:#8a8a8a;margin-right:4px">K10 specification</div>
   <button type="button" sc-camel-on-click="{{ saveCopy }}" style="appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 10px;cursor:pointer;text-align:left" style-hover="background:#333;border-color:#333">Save as new project</button>
   <button type="button" sc-camel-on-click="{{ printDoc }}" style="appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:9px 10px;cursor:pointer;text-align:left" style-hover="background:#f0f0f0">Print / save PDF</button>
@@ -338,8 +356,8 @@
         <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Drylining sub-contractor
           <input data-setup="subContractor" type="text" placeholder="GA Interiors Ltd" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
         </label>
-        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Architect
-          <input data-setup="architect" type="text" placeholder="[Architect / practice name]" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
+        <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Main contractor contact
+          <input data-setup="mainContractorContact" type="text" placeholder="[Contact name]" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
         </label>
         <label style="display:flex;flex-direction:column;gap:3px;font-size:7.5pt;text-transform:uppercase;letter-spacing:0.12em;color:#555">Issued by
           <input data-setup="issuedBy" type="text" placeholder="Samuel Dann — Head of Design &amp; Technical" style="border:1px solid #000;padding:6px 7px;font:400 10pt/1.2 Archivo,Helvetica,Arial,sans-serif;color:#000;background:#fff;text-transform:none;letter-spacing:0">
@@ -519,7 +537,7 @@
         </div>
         <div>
           <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#8a8a8a">Issued to</div>
-          <div style="font-size:10pt;line-height:1.45;margin-top:2px">{{ mainContractor }}<br>{{ subContractor }}<br>{{ architect }}</div>
+          <div style="font-size:10pt;line-height:1.45;margin-top:2px">{{ mainContractor }}<br>{{ mainContractorContact }}</div>
         </div>
         <div>
           <div style="font-size:7.5pt;text-transform:uppercase;letter-spacing:0.16em;color:#8a8a8a">Issued by</div>
@@ -615,7 +633,7 @@
     </sc-raw-tbody>
   </sc-raw-table>
 
-  <div style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Ceiling specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <div data-schedule-break="" style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Ceiling specification — {{ manufacturer }} {{ boardRange }} boards</div>
   <sc-raw-table data-schedule="ceiling" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35">
     <sc-raw-thead>
       <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
@@ -646,7 +664,7 @@
     </sc-raw-tbody>
   </sc-raw-table>
 
-  <div style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Steel encasement specification — {{ manufacturer }} {{ boardRange }} boards</div>
+  <div data-schedule-break="" style="margin-top:18px;background:#000;color:#fff;padding:6px 9px;font-size:9.5pt;font-weight:700;text-transform:uppercase;letter-spacing:0.1em">Steel encasement specification — {{ manufacturer }} {{ boardRange }} boards</div>
   <sc-raw-table data-schedule="steel" style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:8pt;line-height:1.35">
     <sc-raw-thead>
       <sc-raw-tr style="background:#000;color:#fff;text-transform:uppercase;font-weight:600;font-size:7.5pt;letter-spacing:0.05em">
@@ -682,15 +700,19 @@
   <div class="rail" id="schedule-actions-status" data-status-text="" style="font:600 8pt/1.4 Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:8px;min-height:1em"></div>
 </section>
 
-<section data-tabpane="k10" style="break-before:page;font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:34px;padding-top:26px;border-top:3px double #000">
-  <h2 style="font-size:15pt;font-weight:700;margin:0 0 4px 0;letter-spacing:-0.01em">Full clauses</h2>
-  <p style="font-size:9pt;margin:0 0 10px 0;color:#555;max-width:80ch">One clause block per system reference, in schedule order. Use <strong>+ Add clause</strong> at the end of this section to append another blank clause page.</p>
+<section data-tabpane="k10" data-clauses-section="" style="break-before:page;font-family:Archivo,Helvetica,Arial,sans-serif;color:#000;margin-top:34px;padding-top:26px;border-top:3px double #000">
+  <div data-clauses-title="">
+    <div style="font-size:8.5pt;text-transform:uppercase;letter-spacing:0.24em;color:#555">Specification — Section K10</div>
+    <h2 style="font-size:26pt;font-weight:700;margin:3mm 0 0 0;letter-spacing:-0.02em;line-height:1.08">Full clauses</h2>
+    <div style="font-size:11pt;color:#333;margin-top:2.5mm">{{ docRef }} — {{ projectName }}</div>
+  </div>
+  <p class="rail" style="font-size:9pt;margin:10px 0;color:#555;max-width:80ch">One clause block per system reference, in schedule order. Use <strong>+ Add clause</strong> at the end of this section to append another blank clause page.</p>
   <div class="rail" style="display:flex;align-items:center;gap:8px;margin:0 0 16px 0">
     <button type="button" sc-camel-on-click="{{ undoRemoveClause }}" style="appearance:none;border:1px solid #8a8a8a;background:#fff;color:#555;font:500 9pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:8px 12px;cursor:pointer;white-space:nowrap" style-hover="background:#f0f0f0;border-color:#000;color:#000">Undo remove</button>
     <span id="clause-remove-status" style="font-size:7.5pt;line-height:1.4;color:#8a8a8a"></span>
   </div>
 
-  <div data-clause-block="" data-clause-proforma="" style="break-before:page;margin-top:34px;padding-top:26px;border-top:1.5px solid #000">
+  <div data-clause-block="" data-clause-proforma="" class="rail" style="break-before:page;margin-top:34px;padding-top:26px;border-top:1.5px solid #000">
     <div style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1.5px solid #000">
       <div style="font-size:13pt;font-weight:700;letter-spacing:-0.01em"><span class="fill" style="font-size:13pt">[XX-000]</span> — <span class="fill" style="font-size:13pt">[System name]</span></div>
       <div data-clause-tag="" style="font-size:8pt;text-transform:uppercase;letter-spacing:0.1em;color:#555">Blank pro-forma — duplicate per system</div>
@@ -806,7 +828,7 @@
   </div>
   <div style="columns:2;column-gap:34px;font-size:9.5pt;line-height:1.6;padding-top:12px">
     <ol style="margin:0;padding-left:18px">
-      <li style="margin-bottom:8px">Start on the <strong>Project setup</strong> page: fill in the specification title, issuing company, project number, name, address, revision, date, contractor, sub-contractor, architect and GA contact, then press <strong>Apply to specification</strong>. Those values flow into the title page, running header and clauses and are saved with the document.</li>
+      <li style="margin-bottom:8px">Start on the <strong>Project setup</strong> page: fill in the specification title, issuing company, project number, name, address, revision, date, contractor, contractor contact, sub-contractor and GA contact, then press <strong>Apply to specification</strong>. Those values flow into the title page, running header and clauses and are saved with the document.</li>
       <li style="margin-bottom:8px">Choose the manufacturer and board range on the same page. Only these two fields need changing to re-issue a specification against a different manufacturer; check any board names that differ between ranges (dB, Fire, MR, Standard, Coreboard equivalents).</li>
       <li style="margin-bottom:8px">Use <strong>Choose a system from the library</strong> to pick a tested manufacturer system: set the schedule, narrow by family, filter on performance (for example “60 minutes” or “54 dB”), give it your project reference, then press <strong>Insert into schedule</strong> — the row lands in the matching table on tab 3. Anything not in the library goes in as a <strong>custom system</strong> below, which is saved for future projects.</li>
       <li style="margin-bottom:8px">Complete the three schedule tables. Duplicate a row per type, use a full-width row for types removed from the specification, and put project comments in each table’s <strong>Additional notes</strong> row.</li>
@@ -889,9 +911,14 @@ class Component extends DCLogic {
 
   _addClause() {
     const proforma = document.querySelector("[data-clause-proforma]");
-    if (!proforma) return;
+    if (!proforma) {
+      this._clauseNote("No pro-forma clause page in the document to clone — reload the app and reopen this project to restore it.");
+      return;
+    }
     const clone = proforma.cloneNode(true);
     clone.removeAttribute("data-clause-proforma");
+    // The pro-forma itself is .rail (screen-only); its clones are real pages.
+    clone.classList.remove("rail");
     clone.setAttribute("data-clause-added", "");
     const stamp = Date.now().toString(36);
     clone.querySelectorAll("image-slot").forEach((slot, i) => {
@@ -1207,6 +1234,11 @@ class Component extends DCLogic {
     const saved = content.clauses || [];
     if (saved.length) {
       const blocks = Array.from(document.querySelectorAll("[data-clause-block]"));
+      // Overflow blocks append to the blocks' parent — read it up front, because
+      // replaceWith below detaches the original nodes and a detached node's
+      // parentNode is null (that crash aborted restore half-done and left
+      // _restoring stuck true, which silenced every save after opening).
+      const host = blocks.length ? blocks[blocks.length - 1].parentNode : null;
       if (content.sched || content.fills) {
         // New shape: every block was captured, in order.
         saved.forEach((html, i) => {
@@ -1214,9 +1246,26 @@ class Component extends DCLogic {
           tpl.innerHTML = this._scrubHtml(html);
           const node = tpl.firstElementChild;
           if (!node) return;
-          if (blocks[i]) blocks[i].replaceWith(node);
-          else if (blocks.length) blocks[blocks.length - 1].parentNode.appendChild(node);
+          const target = blocks[i];
+          // A record saved by a broken build carries no proforma block at
+          // all. Handing the template proforma's spot to an ordinary clause
+          // loses the only block generate/add-clause can clone — and the
+          // next save bakes that loss into the record. Restore such blocks
+          // BESIDE the proforma instead of over it, which also heals the
+          // record the next time it saves.
+          if (target && (node.hasAttribute("data-clause-proforma") ||
+              !target.hasAttribute("data-clause-proforma"))) target.replaceWith(node);
+          else if (target) target.parentNode.insertBefore(node, target);
+          else if (host) host.appendChild(node);
           if (!node.hasAttribute("data-clause-proforma")) this._addRemoveControl(node);
+          else {
+            // A restored pro-forma is the app's clone source, not a page:
+            // screen-only (.rail keeps it out of the print), and any controls
+            // baked into the saved markup are listener-less corpses — a
+            // "Remove clause" that does nothing. Strip them.
+            node.classList.add("rail");
+            node.querySelectorAll("[data-clause-remove],[data-clause-save],[data-clause-undo],[data-clause-save-status]").forEach((b) => b.remove());
+          }
         });
       } else {
         const proforma = document.querySelector("[data-clause-proforma]");
@@ -1528,22 +1577,43 @@ class Component extends DCLogic {
     if (!C) return Promise.resolve();
     return C.load(id).then((row) => {
       if (!row) return;
-      if (row.setup) {
-        document.querySelectorAll("[data-setup]").forEach((el) => {
-          const v = row.setup[el.getAttribute("data-setup")];
-          if (v != null) el.value = v;
+      // The image store was hydrated once, at boot, from whichever spec was
+      // current then. This record's sidecar is the truth now — adopt it
+      // wholesale, or the previous spec's drawings keep showing AND the next
+      // image save writes them over this record's file.
+      if (window.ImageSlots && window.ImageSlots.replaceAll) {
+        C.imagesLoad().then((text) => {
+          let map = null;
+          try { map = JSON.parse(text || "null"); } catch (e) {}
+          window.ImageSlots.replaceAll(map);
         });
-        this.setState({ setup: row.setup });
       }
+      // Project information belongs to the record being opened, never to
+      // whichever K10 happened to be on screen before it. Reset every field
+      // from the incoming record — a key it doesn't carry clears back to the
+      // placeholder (selects fall back to their first option) rather than
+      // keeping the previous project's value.
+      const setup = row.setup || {};
+      document.querySelectorAll("[data-setup]").forEach((el) => {
+        const v = setup[el.getAttribute("data-setup")];
+        if (v != null && String(v) !== "") { el.value = v; return; }
+        if (typeof el.selectedIndex === "number") el.selectedIndex = 0;
+        else el.value = "";
+      });
+      this.setState({ setup: setup });
       const clauses = (row.clauses && row.clauses.list) || [];
       const fills = (row.clauses && row.clauses.fills) || [];
       const sched = row.schedules || {};
       const newShape = Object.values(sched).some((v) => typeof v === "string");
       if (clauses.length || Object.keys(sched).length) {
-        if (!newShape) {
-          document.querySelectorAll("[data-clause-generated],[data-clause-added]").forEach((el) => el.remove());
-          document.querySelectorAll("tr[data-inserted-row]").forEach((el) => el.remove());
-        }
+        // Both shapes: the previous spec's clause pages and inserted rows must
+        // not outlive the switch. New-shape restore replaces blocks pairwise,
+        // so a record with FEWER clauses than the document on screen would
+        // otherwise leave the excess blocks — another project's pages —
+        // sitting in this one. (Schedule tbodies and fills are overwritten
+        // wholesale, so they need no sweep.)
+        document.querySelectorAll("[data-clause-generated],[data-clause-added]").forEach((el) => el.remove());
+        document.querySelectorAll("tr[data-inserted-row]").forEach((el) => el.remove());
         this._restoreContent(newShape
           ? { sched: sched, clauses: clauses, fills: fills }
           : { rows: sched, clauses: clauses });
@@ -2069,6 +2139,13 @@ class Component extends DCLogic {
 
   _decorateClauses() {
     document.querySelectorAll("[data-clause-block]").forEach((block) => {
+      // The pro-forma is the clone source for generate/add-clause — removing
+      // it breaks both, so it gets no controls at all (and any it carries
+      // from older markup are stripped).
+      if (block.hasAttribute("data-clause-proforma")) {
+        block.querySelectorAll("[data-clause-remove],[data-clause-save],[data-clause-undo],[data-clause-save-status]").forEach((b) => b.remove());
+        return;
+      }
       if (block.querySelector("[data-clause-remove]")) return;
       this._addRemoveControl(block);
     });
@@ -2081,13 +2158,31 @@ class Component extends DCLogic {
     this._clauseNote("Clause removed — Undo remove restores it.");
   }
 
-  // Each added or generated clause carries its own remove control in its header.
+  // Each added or generated clause carries its own save + remove controls in
+  // its header. All of it is .rail (never printed) and rebuilt from scratch
+  // wherever old markup re-enters the document — a clone or a restored block
+  // inherits the elements but not their listeners, and a restored status span
+  // would otherwise replay a stale "saved" message from another session.
   _addRemoveControl(clone) {
     const tag = clone.querySelector("[data-clause-tag]");
     if (!tag) return;
-    // A clone inherits the source block's button element but not its
-    // listener — drop any inherited control before binding a live one.
-    clone.querySelectorAll("[data-clause-remove]").forEach((b) => b.remove());
+    clone.querySelectorAll("[data-clause-remove],[data-clause-save],[data-clause-undo],[data-clause-save-status]").forEach((b) => b.remove());
+    const note = document.createElement("span");
+    note.className = "rail";
+    note.setAttribute("data-clause-save-status", "");
+    // data-status-text: the autosave observer must ignore writes to this span
+    // (invariant 4) or every status echo schedules the next save forever.
+    note.setAttribute("data-status-text", "");
+    note.setAttribute("contenteditable", "false");
+    note.setAttribute("style", "margin-left:12px;font:400 7.5pt/1.4 Archivo,Helvetica,Arial,sans-serif;color:#8a8a8a;white-space:nowrap");
+    const save = document.createElement("button");
+    save.type = "button";
+    save.className = "rail";
+    save.setAttribute("data-clause-save", "");
+    save.textContent = "Save to library";
+    save.setAttribute("style", "margin-left:12px;appearance:none;border:1px solid #000;background:#000;color:#fff;font:600 8pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:5px 9px;cursor:pointer;white-space:nowrap");
+    save.addEventListener("click", () => this._saveClauseToLibrary(clone, note));
+    save.setAttribute("contenteditable", "false");
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "rail";
@@ -2096,18 +2191,53 @@ class Component extends DCLogic {
     btn.setAttribute("style", "margin-left:12px;appearance:none;border:1px solid #000;background:#fff;color:#000;font:600 8pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:5px 9px;cursor:pointer;white-space:nowrap");
     btn.addEventListener("click", () => this._removeNode(clone));
     btn.setAttribute("contenteditable", "false");
+    // Undo lives beside every clause, not only at the top of the section — a
+    // clause removed three pages down shouldn't need a scroll to bring back.
+    const undo = document.createElement("button");
+    undo.type = "button";
+    undo.className = "rail";
+    undo.setAttribute("data-clause-undo", "");
+    undo.textContent = "Undo remove";
+    undo.setAttribute("style", "margin-left:12px;appearance:none;border:1px solid #999;background:#fff;color:#555;font:600 8pt/1.2 Archivo,Helvetica,Arial,sans-serif;padding:5px 9px;cursor:pointer;white-space:nowrap");
+    undo.addEventListener("click", () => { const m = this._undoRemoveClause(); if (note) note.textContent = m; });
+    undo.setAttribute("contenteditable", "false");
+    tag.parentNode.appendChild(save);
     tag.parentNode.appendChild(btn);
+    tag.parentNode.appendChild(undo);
+    tag.parentNode.appendChild(note);
+  }
+
+  // One clause's detail, pushed to the shared library on demand. The timed
+  // collation already sweeps everything; this exists so the person filling in
+  // a clause can press a button and SEE that the system is stored for reuse.
+  _saveClauseToLibrary(block, note) {
+    const say = (m) => { if (note) note.textContent = m; };
+    const read = this._clauseFields(block);
+    const key = read.sysRef || read.ref;
+    if (!key || key.charAt(0) === "[") {
+      say("Give the clause a system reference first — a [bracketed] prompt doesn't save.");
+      return;
+    }
+    // The full pass is idempotent and sends only what changed, so running it
+    // for one button press costs nothing extra and reuses the tested path.
+    this._captureSchedules(true);
+    const entry = (this.state.library || []).find((e) => (e.sysRef || e.ref) === key);
+    say(entry
+      ? "“" + key + "” saved to the library · " +
+        new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
+      : "Nothing to save yet — fill in some detail first.");
   }
 
   _undoRemoveClause() {
     const stack = this._removed || [];
     if (!stack.length) {
       this._clauseNote("Nothing to restore.");
-      return;
+      return "Nothing to restore.";
     }
     const last = stack.pop();
     last.parent.insertBefore(last.node, last.next);
     this._clauseNote("Clause restored.");
+    return "Clause restored.";
   }
 
   _newSlotIds(clone) {
@@ -2155,7 +2285,10 @@ class Component extends DCLogic {
 
   _generateClauses() {
     const proforma = document.querySelector("[data-clause-proforma]");
-    if (!proforma) return;
+    if (!proforma) {
+      this._scheduleNote("No pro-forma clause page in the document to build from — reload the app and reopen this project to restore it.");
+      return;
+    }
     this._captureSchedules(true);
     document.querySelectorAll("[data-clause-generated]").forEach((el) => el.remove());
     const rows = [];
@@ -2208,6 +2341,8 @@ class Component extends DCLogic {
     rows.forEach((row) => {
       const clone = proforma.cloneNode(true);
       clone.removeAttribute("data-clause-proforma");
+      // The pro-forma itself is .rail (screen-only); its clones are real pages.
+      clone.classList.remove("rail");
       clone.setAttribute("data-clause-generated", "");
       this._newSlotIds(clone);
       const tag = clone.querySelector("[data-clause-tag]");
@@ -2321,7 +2456,7 @@ class Component extends DCLogic {
       projectAddress: pick("projectAddress", "[Address, Town, Postcode]"),
       mainContractor: pick("mainContractor", "[Main contractor]"),
       subContractor: pick("subContractor", "[Drylining sub-contractor]"),
-      architect: pick("architect", "[Architect]"),
+      mainContractorContact: pick("mainContractorContact", "[Contact name]"),
       issuedBy: pick("issuedBy", "Samuel Dann — Head of Design & Technical"),
       issuedByTel: pick("issuedByTel", "07594 131593"),
       issuedByEmail: pick("issuedByEmail", "samuel@gainteriorsltd.com"),
