@@ -15,7 +15,7 @@ system arrives complete — text *and* build-up drawing. Plug and play.
 - **Repo:** `VoodooBearxo/K10Spec`, branch `main`, cloned at `~/Documents/Projects/K10Spec`
 - **Backend:** Supabase project `bbshqvlrfcivhddkwgib` ("Sitebear.io" — it also hosts an
   unrelated app; **do not touch tables outside `k10_*`**)
-- Currently live: **v24 · 12 Aug 14:45**, 606,586 bytes
+- Currently live: **V1.25 · 13 Aug 09:10**, 606,588 bytes. Version format is V1.x, minor bumped every build.
 
 ## Build and publish — read before changing anything
 **The repo's `index.html` is a build artefact, not source.** The original bundler is part
@@ -50,7 +50,7 @@ reproducible: rebuilding the shipped build from `source/` gives a byte-identical
 **Publishing** — a deploy key with write access is configured (`~/.ssh/k10spec_deploy`,
 host alias `github-k10spec`), so `git push origin main` works from this machine. Pages
 takes 1–3 minutes. Confirm with the byte count, not the stamp (the stamp is stored
-JSON-escaped as `v24 · …`, so a naive grep will miss it):
+JSON-escaped as `V1.25 · …`, so a naive grep will miss it):
 
 ```bash
 curl -s https://voodoobearxo.github.io/K10Spec/ | wc -c
